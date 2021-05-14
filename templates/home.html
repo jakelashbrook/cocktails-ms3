@@ -1,12 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>I'm extendinhg the base template</h2>
 
     {% for recipe in recipes %}
-        {{ recipe.recipe_name }}<br>
-        {{ recipe.category_name }}<br>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h4>{{ recipe.recipe_name }}</h4>
+                    <small>{{ recipe.category_name }}</small>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
     {% endfor %}
-
 
 {% endblock %}

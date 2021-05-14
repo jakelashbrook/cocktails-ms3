@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's your tail? Find and share Cocktail recipes</title>
+</head>
+<body>
+    {% for recipe in recipes %}
+        {{ recipe.recipe_name }}<br>
+        {{ recipe.category_name }}
+    {% endfor %}
+</body>
+</html>

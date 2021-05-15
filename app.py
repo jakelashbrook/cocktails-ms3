@@ -21,7 +21,10 @@ mongo = PyMongo(app)
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
-    return render_template("home.html", recipes=recipes)
+    # recipes to be shown on mobile devices
+    mobile_recipes = [recipes[0], recipes[1], recipes[2]]
+    return render_template(
+        "home.html", recipes=recipes, mobile_recipes=mobile_recipes)
 
 
 if __name__ == "__main__":

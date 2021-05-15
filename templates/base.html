@@ -9,14 +9,14 @@
     <!-- Google Icons Link -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Internal CSS File -->
-    <link rel="stylesheet" href="#" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
     <!-- jQuery File Link -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>What's your tail? Find and Share your favourite cocktail recipes</title>
 </head>
 <body>
     <!-- Login/Sign Up and Logout Navigation -->
-    <div id="log-nav" class="pl-3">
+    <div id="log-nav" class="pl-3 container-fluid">
     <a href="#" id="login">Login | Sign Up</a> <a href="#" id="logout" style="display:none" class="left">Logout</a>
     </div>
     <!-- Site Navigation (Bootstrap Materialize Component) -->
@@ -67,16 +67,7 @@
     
     <!-- Global Footer -->
     <footer class="container-fluid fixed-bottom panel">
-        <div class="row">
-            <div class="col-sm-12 col-md-8">
-                <h4 class="text-center">Promotions</h4>
-                <hr>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <h4 class="text-center">Quick Links</h4>
-                <hr>
-            </div>
-        </div>
+       
     </footer>
 
 

@@ -6,23 +6,27 @@
     <!-- Compiled and minified Bootstrap Material Design CSS -->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" 
     integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous" type="text/css">
-    <!-- Google Icons Link -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Internal CSS File -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <!-- jQuery File Link -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>What's your tail? Find and Share your favourite cocktail recipes</title>
+    <!-- Internal CSS File -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    {% block styles %}
+    <!-- For any custom CSS styles to be injected here-->
+    {% endblock %}
 </head>
 <body>
     <div class="container" id="content-body">
     <!-- Login/Sign Up and Logout Navigation -->
     <div id="log-nav" class="pl-3 container-fluid">
-    <a href="#" id="login">Login | Sign Up</a> <a href="#" id="logout" style="display:none" class="left">Logout</a>
+    <a href="#" id="login">Login | Sign Up</a>
     </div>
     <!-- Site Navigation (Bootstrap Materialize Component) -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand pangolin" href="#">What's your Tail?</a>
+        <a class="navbar-brand pangolin" href="{{ url_for('get_recipes') }}">What's your Tail?</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -30,9 +34,12 @@
     
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                <!-- Home Link-->
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ url_for('get_recipes') }}"><i class="fas fa-home" title="Home"></i>
+                    <span class="sr-only">(current)</span></a>
                 </li>
+                <!-- Dropdown Cocktail Categories -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -48,9 +55,21 @@
                         <a class="dropdown-item" href="#">Other Cocktails</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled d-none" href="#">Link</a>
+                <!-- Account -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        My Account
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="accountDropdown">
+                        <a class="dropdown-item" href="#">New Recipe</a>
+                        <a class="dropdown-item" href="#">Manage Categories</a>
+                        <a class="dropdown-item" href="#">My Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Delete Account</a>
+                    </div>
                 </li>
+                <!-- -->
                 <li class="nav-item">
                     <a class="nav-link disabled d-none" href="#">Disabled</a>
                 </li>
@@ -85,6 +104,8 @@
     <script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
     <!-- Internal Main JS File -->
     <script src="{{ url_for('static', filename='js/main.js')}}"></script>
-            
+    <!-- For injecting custom JS -->
+    {% block scripts %}
+    {% endblock %}
 </body>
 </html>

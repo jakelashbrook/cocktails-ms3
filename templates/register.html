@@ -5,29 +5,31 @@
         <hr>
         <h3 class="mt-3 text-center text-uppercase">Register Account</h3>
         <hr>
-        <div class="card text-center">
+        <div class="card text-center ghost-wht">
             <form method="POST" action="{{ url_for('register') }}">
                 <div class="container pt-3">
                 <div class="row">
                     <div class="col-sm-12 col-md-6 p-3">
                         <div class="container">
                         <label for="username"><i class="fas fa-user"></i> Create Username</label>
-                        <input type="text" class="form-control" id="username" name="username">
+                        <input type="text" class="form-control" id="username" name="username" minlength="5"
+                            maxlength="10" pattern="^[a-zA-Z0-9]{5,15}$" required>
                         <small class="text-capitalize font-weight-bold p-1">Username must be 5-10 characters. Only use letters or numbers!</small>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6 p-3">
                         <div class="container">
                         <label for="password"><i class="fas fa-lock text-center"></i> Create Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
+                        <input type="password" class="form-control" id="password" name="password" minlength="5"
+                            maxlength="10" pattern="^[a-zA-Z0-9]{5,15}$" required>
                         <small class="text-capitalize font-weight-bold p-1">Password must be 5-10 characters. Only use letters or numbers!</small>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a class="btn">Register <i class="fas fa-sign-in-alt"></i></a>
-                        <a class="btn">Cancel <i class="fas fa-window-close"></i></a>
+                        <button type="submit" class="btn">Register <i class="fas fa-sign-in-alt"></i></button>
+                        <button class="btn">Cancel <i class="fas fa-window-close"></i></button>
                     </div>
                 </div>
                 </div>

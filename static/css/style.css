@@ -14,7 +14,25 @@ hr {
     background-color: #210124;
 }
 
+/* Colours */
+.ghost-wht {
+    background-color: #F5F3F7;
+}
+
+/* Buttons and Links */
+.btn {
+    background-color: #D7D6D6;
+    border: #210124;
+}
+
+.btn:hover {
+    background-color: #A1A1A5;
+    color: #fafafa;
+}
 
 /* Login/Logout & Dark/Light Mode Navbar */
 
 /* Main Navbar */
+.bg-light {
+    background-color: #F5F3F7!important;
+}

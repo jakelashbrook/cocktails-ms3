@@ -74,22 +74,39 @@
                     <a class="nav-link disabled d-none" href="#">Disabled</a>
                 </li>
             </ul>
+            <!-- Search application -->
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn border my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn border my-2 my-sm-0" type="submit">Search <i class="fas fa-search"></i></button>
             </form>
         </div>
     </nav>
     </div>
 
-
-    <!-- Global Footer -->
-    <footer class="container-fluid fixed-bottom panel">
-       
-    </footer>
-
+    <section>
+        <!-- Flash Messages to be displayed here -->
+        {% with messages = get_flashed_messages() %}
+            <!-- If there are messages-->
+            {% if messages %}
+            <!-- Display message within messages -->
+                {% for message in messages %}
+                <div class="container text-center pt-2 ghost-wht">
+                    <div class="row">
+                        <div class="col-12">
+                        <!-- Print message here -->
+                        <h3>{{ message }}</h3>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %} 
+            {% endif %}
+        {% endwith %}
+    </section>
+   
+    <main class="container">
     {% block content %}
     {% endblock%}
+    </main>
     
 
 

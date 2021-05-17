@@ -11,26 +11,29 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-6 p-3">
                         <div class="container">
-                        <label for="username"><i class="fas fa-user"></i> Create Username</label>
+                        <label for="username" class="grn-txt"><i class="fas fa-plus-square"></i> Create Username</label>
                         <input type="text" class="form-control" id="username" name="username" minlength="5"
                             maxlength="10" pattern="^[a-zA-Z0-9]{5,15}$" required>
-                        <small class="text-capitalize font-weight-bold p-1">Username must be 5-10 characters. Only use letters or numbers!</small>
+                        <small class="text-capitalize font-weight-bold p-3">Username must be 5-10 characters. Only use letters or numbers!</small>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6 p-3">
                         <div class="container">
-                        <label for="password"><i class="fas fa-lock text-center"></i> Create Password</label>
+                        <label for="password" class="grn-txt"><i class="fas fa-lock text-center"></i> Create Password</label>
                         <input type="password" class="form-control" id="password" name="password" minlength="5"
                             maxlength="10" pattern="^[a-zA-Z0-9]{5,15}$" required>
-                        <small class="text-capitalize font-weight-bold p-1">Password must be 5-10 characters. Only use letters or numbers!</small>
+                        <small class="text-capitalize font-weight-bold p-3">Password must be 5-10 characters. Only use letters or numbers!</small>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <button type="submit" class="btn">Register <i class="fas fa-sign-in-alt"></i></button>
-                        <button class="btn">Cancel <i class="fas fa-window-close"></i></button>
+                    <div class="col pt-3">
+                        <button type="submit" class="btn button">Register <i class="fas fa-sign-in-alt"></i></button>
+                        <a href="{{ url_for('get_recipes') }}" class="btn button">Cancel <i class="fas fa-window-close">
+                        </i></a><br><br>
+                        <p>Already have an account? <a href="{{ url_for('login') }}"> Log In now</a></p>
                     </div>
+                    
                 </div>
                 </div>
             </form>

@@ -3,11 +3,11 @@
 
 /* Body classes */
 body {
-    color: #210124;
     background-image: url("/static/images/white-marble-bg.jpeg");
     background-position: center;
     background-repeat: repeat-y;
     background-size: auto;
+    color: #210124;
 }
 
 hr {
@@ -19,16 +19,24 @@ hr {
     background-color: #F5F3F7;
 }
 
-/* Buttons and Links */
-.btn {
+.light-gray {
     background-color: #D7D6D6;
-    border: #210124;
 }
 
-.btn:hover {
-    background-color: #A1A1A5;
-    color: #fafafa;
+.grn-txt {
+    color: #009688;
 }
+/* Buttons and Links */
+.button {
+    background-color: #D7D6D6;
+    color: #009688;
+}
+
+.button:hover {
+    background-color: #A1A1A5;
+    color: #210124!important;
+}
+
 
 /* Login/Logout & Dark/Light Mode Navbar */
 
@@ -36,3 +44,22 @@ hr {
 .bg-light {
     background-color: #F5F3F7!important;
 }
+
+.dropdown-menu {
+    background-color: #F5F3F7!important;
+}
+
+.navbar-light .navbar-toggler {
+    color: #009688;
+    border-color: #009688;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #009688;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #009688;
+}
+
+

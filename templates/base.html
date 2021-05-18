@@ -22,7 +22,11 @@
     <div class="container" id="content-body">
     <!-- Login/Sign Up and Logout Navigation -->
     <div id="log-nav" class="pl-3 container-fluid">
+    {% if session.user %}
+    <a href="{{ url_for('logout')}}">Logout</a>
+    {% else %}
     <a href="{{ url_for('login') }}" id="login">Login</a> | <a href="{{ url_for('register') }}" id="register">Register</a>
+    {% endif %}
     </div>
     <!-- Site Navigation (Bootstrap Materialize Component) -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -56,6 +60,7 @@
                     </div>
                 </li>
                 <!-- Account -->
+                {% if session.user %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -66,10 +71,10 @@
                         <a class="dropdown-item" href="#">Manage Categories</a>
                         <a class="dropdown-item" href="{{ url_for('profile', username=session['user'])}}">My Tail</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Log out</a>
                         <a class="dropdown-item" href="#">Delete Account</a>
                     </div>
                 </li>
+                {% endif %}
                 <!-- -->
                 <li class="nav-item">
                     <a class="nav-link disabled d-none" href="#">Disabled</a>
@@ -92,7 +97,7 @@
             <!-- Display message within messages -->
                 {% for message in messages %}
                 <div class="container text-center mt-3">
-                    <div class="row card light-gray">
+                    <div class="row card grn-bg">
                         <div class="col-12">
                         <!-- Print message here -->
                         <h3>{{ message }}</h3>

@@ -26,6 +26,10 @@ hr {
 .grn-txt {
     color: #009688;
 }
+
+.grn-bg {
+    background-color: #009688;
+}
 /* Buttons and Links */
 .button {
     background-color: #D7D6D6;

@@ -99,11 +99,16 @@ def logout():
     session.pop("user")
     return redirect(url_for('login'))
 
+
 @app.route("/cocktails", methods=["GET", "POST"])
 def cocktails():
     recipes = list(mongo.db.recipes.find())
     return render_template('cocktails.html', recipes=recipes)
 
+
+@app.route("/add_cocktail")
+def add_cocktail():
+    return render_template("add_cocktail.html")
 
 
 if __name__ == "__main__":

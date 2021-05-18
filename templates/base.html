@@ -67,7 +67,7 @@
                         My Account
                     </a>
                     <div class="dropdown-menu" aria-labelledby="accountDropdown">
-                        <a class="dropdown-item" href="#">New Recipe</a>
+                        <a class="dropdown-item" href="{{ url_for('add_cocktail') }}">Add Cocktail</a>
                         <a class="dropdown-item" href="#">Manage Categories</a>
                         <a class="dropdown-item" href="{{ url_for('profile', username=session['user'])}}">My Tail</a>
                         <div class="dropdown-divider"></div>
@@ -89,18 +89,18 @@
     </nav>
     </div>
 
-    <section>
+    <section class="container">
         <!-- Flash Messages to be displayed here -->
         {% with messages = get_flashed_messages() %}
             <!-- If there are messages-->
             {% if messages %}
             <!-- Display message within messages -->
                 {% for message in messages %}
-                <div class="container text-center mt-3">
+                <div class="container text-center mt-3 text-white">
                     <div class="row card grn-bg">
                         <div class="col-12">
                         <!-- Print message here -->
-                        <h3>{{ message }}</h3>
+                        <h3 class="p-3">{{ message }}</h3>
                         </div>
                     </div>
                 </div>

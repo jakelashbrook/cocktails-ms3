@@ -7,40 +7,97 @@
 
     <div class="container ghost-wht card">
         <h4 class="text-center pt-3">What's your tail?</h4>
-        <form class="container pt-3">
+        <form class="container pt-3" method="POST" action="">
             <div class="row">
-                <div class="col">
-                    <label for="recipe_name">Cocktail Name:</label>
+                <!-- Input Cocktail Name -->
+                <div class="col-sm-12 col-md-6">
+                    <label for="recipe_name" class="grn-txt text-uppercase">Cocktail Name:</label>
                     <input type="text" class="form-control"
                     name="recipe_name" id="recipe_name" required>
                 </div>
-                <div class="col">
-                    <label for="prep_time">Prep Time:</label>
-                    <input type="text" class="form-control"
+                <div class="col-sm-12 col-md-6">
+                    <!-- Prep Time -->
+                    <label for="category_name" class="grn-txt text-uppercase">Category Name:</label>
+                    <div class="row">
+                        <div class="col-12">
+                            <select class="form-select form-select-lg mb-3 p-2" aria-label=".form-select-lg"
+                             name="category_name" id="category_name" required>
+                                <option selected><strong>Select a category</strong></option>
+                                <option value="1">Mocktails</option>
+                                <option value="2">Fruity</option>
+                                <option value="3">Sour</option>
+                                <option value="4">Dessert</option>
+                                <option value="5">Sparkling</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            <div class="row pt-2">
+                <!-- Image URL -->
+                <div class="col-sm-12 col-md-6">
+                    <label for="img_url" class="grn-txt text-uppercase">Image URL Address:</label>
+                    <input type="text" class="form-control" name="img_url" id="img_url" required>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <!-- Prep Time -->
+                    <label for="prep_time" class="grn-txt text-uppercase" >Prep Time:</label>
+                    <input type="text" class="form-control" 
                     name="prep_time" id="prep_time" required>
                 </div>
             </div>
             <div class="row pt-2">
-                <div class="col">
-                    <label for="img_url">Paste the Image URL Address:</label>
-                    <input type="text" class="form-control" name="img_url" id="img_url" required>
-                </div>
-                <div class="col">
-                    <label for="garnish">To Garnish:</label>
-                    <input type="text" class="form-control" 
-                    name="garnish" id="garnish" required>
+                <div class="col-12">
+                    <label for="ingredients" class="grn-txt text-uppercase">Ingredients:</label>
+                    <textarea type="text" class="form-control"
+                    name="ingredients" id="ingredients" required></textarea>
                 </div>
             </div>
             <div class="row pt-2">
+                <!-- Step 1 -->
                 <div class="col-12">
-                    <label for="method_step_one">Step 1:</label>
-                    <input type="text" class="form-control"
-                    name="method_step_one" id="method_step_one" required>
+                    <label for="method_step_one" class="grn-txt text-uppercase pt-2">Step 1:</label>
+                    <textarea type="text" class="form-control"
+                    name="method_step_one" id="method_step_one" required></textarea>
                 </div>
                 <div class="col-12">
-                    <label for="method_step_2">Step 2:</label>
+                    <!-- Step 2 -->
+                    <label for="method_step_2" class="grn-txt text-uppercase pt-2">Step 2:</label>
+                    <textarea type="text" class="form-control" 
+                    name="method_step_two" id="method_step_two" required></textarea>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <!-- Inspiration -->
+                <div class="col-sm-12 col-md-6">
+                    <label for="inspiration" class="grn-txt text-uppercase">Tips:</label>
+                    <input type="text" class="form-control" name="inspiration" id="inspiration">
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <!-- Eat With -->
+                    <label for="eat_with" class="grn-txt text-uppercase">Eat with:</label>
                     <input type="text" class="form-control" 
-                    name="method_step_two" id="method_step_two" required>
+                    name="eat_with" id="eat_with">
+                </div>
+            </div>
+            <div class="row pt-2">
+                <!-- Garnish -->
+                <div class="col-sm-12 col-md-6">
+                    <label for="garnish" class="grn-txt text-uppercase">To Garnish:</label>
+                    <input type="text" class="form-control" name="garnish" id="garnish">
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <!-- Recipe Author-->
+                    <label for="author" class="grn-txt text-uppercase">Author:</label>
+                    <input type="text" class="form-control" 
+                    name="author" id="author">
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col text-center">
+                    <button type="submit" class="btn button">Add <i class="fas fa-plus-square"></i></button>
+                    <a href="{{ url_for('get_recipes') }}" class="btn button">Cancel <i class="fas fa-window-close">
+                    </i></a>
                 </div>
             </div>
         </form>

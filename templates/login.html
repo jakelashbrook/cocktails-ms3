@@ -9,6 +9,7 @@
             <form method="POST" action="{{ url_for('login') }}">
                 <div class="container pt-3">
                     <div class="row">
+                        <!-- Username -->
                         <div class="col-sm-12 col-md-6 p-3">
                             <div class="container">
                                 <label for="username"><i class="fas fa-user grn-txt"></i> Username</label>
@@ -16,6 +17,7 @@
                                     maxlength="10" pattern="^[a-zA-Z0-9]{5,15}$" required>
                             </div>
                         </div>
+                        <!-- Password -->
                         <div class="col-sm-12 col-md-6 p-3">
                             <div class="container">
                                 <label for="password"><i class="fas fa-lock grn-txt"></i> Password</label>
@@ -25,6 +27,7 @@
                         </div>
                     </div>
                     <div class="row">
+                        <!-- Log In -->
                         <div class="col pt-3">
                             <button type="submit" class="btn button">Log In <i class="fas fa-sign-in-alt"></i></button>
                             <a href="{{ url_for('get_recipes') }}" class="btn button">Cancel <i class="fas fa-window-close"></i></a><br><br>

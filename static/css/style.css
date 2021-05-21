@@ -18,6 +18,14 @@ i {
     line-height: 1.4;
 }
 
+a {
+    color: #009688;
+}
+
+a:hover {
+    color: #210124;
+}
+
 /* Colours */
 .ghost-wht {
     background-color: #F5F3F7;
@@ -33,6 +41,10 @@ i {
 
 .grn-bg {
     background-color: #009688;
+}
+
+.dp-txt {
+    color: #210124;
 }
 /* Buttons and Links */
 .button {

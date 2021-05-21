@@ -106,8 +106,27 @@ def cocktails():
     return render_template('cocktails.html', recipes=recipes)
 
 
-@app.route("/add_cocktail")
+@app.route("/add_cocktail", methods=["GET", "POST"])
 def add_cocktail():
+    if request.method == "POST":
+        recipe = {
+            "category_name": request.form.get("category_name"),
+            "recipe_name": request.form.get("recipe_name"),
+            "prep_time": request.form.get("prep_time"),
+            "img_url": request.form.get("img_url"),
+            "ingredients": request.form.getlist("ingredients"),
+            "garnish": request.form.get("garnish"),
+            "method_step_one": request.form.get("method_step_one"),
+            "method_step_two": request.form.get("method_step_two"),
+            "inspiration": request.form.get("inspiration"),
+            "eat_with": request.form.get("eat_with"),
+            "summary": request.form.get("summary"),
+            "author": request.form.get("author"),
+            "created_by": session["user"]
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Cocktail recipe has been successfully added")
+        return redirect(url_for('cocktails'))
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_cocktail.html", categories=categories)
 

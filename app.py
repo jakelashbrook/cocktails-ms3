@@ -131,6 +131,18 @@ def add_cocktail():
     return render_template("add_cocktail.html", categories=categories)
 
 
+@app.route("/recipe/<recipe_id>")
+def recipe(recipe_id):
+    # Find specific recipe in db
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    if not recipe:
+        flash("Recipe does not exist")
+        return render_template("cocktails.html")
+
+    return render_template("cocktail-recipe.html", recipe=recipe)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

@@ -6,7 +6,7 @@
     <hr>
 
     <div class="container ghost-wht card">
-        <h4 class="text-center pt-3">What's your tail?</h4>
+        <h4 class="text-center pt-3">Tell everyone your tail?</h4>
         <form class="container pt-3" method="POST" action="">
             <div class="row">
                 <!-- Input Cocktail Name -->
@@ -18,14 +18,12 @@
                 <div class="col-12 pt-2">
                     <!-- Category Name -->
                     <label for="category_name" class="grn-txt text-uppercase">Category Name:</label><br>
-                            <select class="form-select form-select-lg mb-3 p-2" aria-label=".form-select-lg"
+                            <select class="custom-select custom-select-lg mb-3 p-2" aria-label=".form-select-lg"
                              name="category_name" id="category_name" required>
-                                <option selected><strong>Select a category</strong></option>
-                                <option value="1">Mocktails</option>
-                                <option value="2">Fruity</option>
-                                <option value="3">Sour</option>
-                                <option value="4">Dessert</option>
-                                <option value="5">Sparkling</option>
+                                <option selected disabled> Select a category</option>
+                                {% for category in categories %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>

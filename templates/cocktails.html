@@ -17,8 +17,8 @@
                                 <!-- Print recipe name from database -->
                                 <h4 class="card-title font-weight-bold">{{ recipe.recipe_name }}</h4>
                                 <!-- Print recipe summary from database -->
-                                <p class="card-text">{{ recipe.summary }}</p>
-                                <a href="#" class="btn btn-primary">TRY NOW</a>
+                                <br><br><br><br>
+                                <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="btn button">TRY NOW</a>
                             </div>
                         </div>
                     </div>

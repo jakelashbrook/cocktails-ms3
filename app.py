@@ -172,6 +172,18 @@ def get_categories():
     return render_template("categories.html", categories=categories)
 
 
+@app.route("/get_user_recipes")
+def get_user_recipes():
+    recipes = mongo.db.recipes.find().sort("recipe_name", 1)
+    return render_template("user_recipes.html", recipes=recipes)
+
+
+@app.route("/get_users")
+def get_users():
+    users = mongo.db.users.find().sort("username", 1)
+    return render_template("users.html", users=users)
+
+
 
 @app.route("/recipe/<recipe_id>")
 def recipe(recipe_id):

@@ -4,9 +4,6 @@
 /* Body classes */
 body {
     background-image: url("/static/images/white-marble-bg.jpeg");
-    background-position: center;
-    background-repeat: repeat-y;
-    background-size: auto;
     color: #210124;
 }
 

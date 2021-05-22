@@ -12,7 +12,7 @@
                 <!-- Input Cocktail Name -->
                 <div class="col-12">
                     <label for="recipe_name" class="grn-txt text-uppercase">Cocktail Name:</label>
-                    <input type="text" class="form-control" 
+                    <input type="text" class="form-control" value="{{ recipe.recipe_name }}"
                     name="recipe_name" id="recipe_name" required>
                 </div>
                 <div class="col-12 pt-2">
@@ -20,9 +20,13 @@
                     <label for="category_name" class="grn-txt text-uppercase">Category Name:</label><br>
                             <select class="custom-select custom-select-lg mb-3 p-2" aria-label=".form-select-lg"
                              name="category_name" id="category_name" required>
-                                <option selected disabled> Select a category</option>
+                                <option disabled> Select a category</option>
                                 {% for category in categories %}
+                                {% if category.category_name == recipe.category_name %}
+                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                                {% else %}
                                 <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
                         </div>
@@ -31,21 +35,25 @@
                 <!-- Image URL -->
                 <div class="col-12">
                     <label for="img_url" class="grn-txt text-uppercase">Image URL Address:</label>
-                    <input type="text" class="form-control" name="img_url" id="img_url" required>
+                    <input type="text" class="form-control" value="{{ recipe.img_url }}"
+                    name="img_url" id="img_url" required>
                     <small class="text-uppercase dp-txt">Copy the image URL address here</small>
                 </div>
                 <div class="col-12">
                     <!-- Prep Time -->
                     <label for="prep_time" class="grn-txt text-uppercase" >Prep Time:</label>
-                    <input type="text" class="form-control" maxlength="10"
+                    <input type="text" class="form-control" maxlength="10" value="{{ recipe.prep_time }}"
                     name="prep_time" id="prep_time" required>
                 </div>
             </div>
             <div class="row pt-2">
                 <div class="col-12">
                     <label for="ingredients" class="grn-txt text-uppercase">Ingredients:</label>
-                    <textarea type="text" class="form-control" 
-                    name="ingredients" id="ingredients" required></textarea>
+                    <!-- The - symbol in jinja eliminates whitespace -->
+                    <!-- Use the + symbol to add whitespace -->
+                    <textarea type="text" class="form-control" name="ingredients" id="ingredients" required>
+                        {{- recipe.ingredients -}}
+                    </textarea>
                     <small class="text-uppercase dp-txt">Please write each ingredient on a new line</small>
                 </div>
             </div>
@@ -53,14 +61,20 @@
                 <!-- Step 1 -->
                 <div class="col-12">
                     <label for="method_step_one" class="grn-txt text-uppercase pt-2">Step 1:</label>
-                    <textarea type="text" class="form-control"
-                    name="method_step_one" id="method_step_one" required></textarea>
+                    <!-- The - symbol in jinja eliminates whitespace -->
+                    <!-- Use the + symbol to add whitespace -->
+                    <textarea type="text" class="form-control"name="method_step_one" id="method_step_one" required>
+                        {{- recipe.method_step_one -}}
+                    </textarea>
                 </div>
                 <div class="col-12">
                     <!-- Step 2 -->
                     <label for="method_step_two" class="grn-txt text-uppercase pt-2">Step 2:</label>
-                    <textarea type="text" class="form-control" 
-                    name="method_step_two" id="method_step_two" required></textarea>
+                    <!-- The - symbol in jinja eliminates whitespace -->
+                    <!-- Use the + symbol to add whitespace -->
+                    <textarea type="text" class="form-control" name="method_step_two" id="method_step_two" required>
+                        {{- recipe.method_step_two -}}
+                    </textarea>
                 </div>
             </div>
             <div class="row pt-2">
@@ -68,13 +82,13 @@
                 <div class="col-sm-12 col-md-6">
                     <label for="inspiration" class="grn-txt text-uppercase">Tips:</label>
                     <input type="text" class="form-control" name="inspiration" id="inspiration"
-                    maxlength="30">
+                    maxlength="30" value="{{ recipe.inspiration }}">
                     <small class="text-uppercase dp-txt">Ideas to enhance up the recipe</small>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <!-- Eat With -->
                     <label for="eat_with" class="grn-txt text-uppercase">Eat with:</label>
-                    <input type="text" class="form-control" 
+                    <input type="text" class="form-control" value="{{ recipe.eat_with }}"
                     name="eat_with" id="eat_with" maxlength="30">
                     <small class="text-uppercase dp-txt">Suggestions for accompanying meals or snacks</small>
                 </div>
@@ -83,14 +97,15 @@
                 <!-- Garnish -->
                 <div class="col-sm-12 col-md-6">
                     <label for="garnish" class="grn-txt text-uppercase">To Garnish:</label>
-                    <input type="text" class="form-control" name="garnish" id="garnish" maxlength="30">
+                    <input type="text" class="form-control" name="garnish" id="garnish" 
+                    maxlength="30" value="{{ recipe.garnish }}">
                     <small class="text-uppercase dp-txt">Best garnishes to use</small>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <!-- Recipe Author-->
                     <label for="author" class="grn-txt text-uppercase">Author:</label>
                     <input type="text" class="form-control" minlength="10" maxlength="25"
-                    name="author" id="author">
+                    name="author" id="author" value="{{ recipe.author }}">
                     <small class="text-uppercase dp-txt">Your name or the name of the recipe author</small>
                 </div>
             </div>

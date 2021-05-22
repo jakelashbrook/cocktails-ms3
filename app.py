@@ -131,6 +131,15 @@ def add_cocktail():
     return render_template("add_cocktail.html", categories=categories)
 
 
+@app.route("/edit_cocktail/<recipe_id>", methods=["GET", "POST"])
+def edit_cocktail(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+        "edit_cocktail.html", recipe=recipe, categories=categories)
+
+
 @app.route("/recipe/<recipe_id>")
 def recipe(recipe_id):
     # Find specific recipe in db

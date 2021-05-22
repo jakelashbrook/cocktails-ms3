@@ -17,15 +17,15 @@
                         <!-- Edit the recipe -->
                         <div class="col-12 text-center">
                             <a href="{{ url_for('edit_cocktail', recipe_id=recipe._id)}}" 
-                            class="btn button" id="edit-ct-btn">Edit</a>
+                            class="btn button" id="edit-ct-btn">Edit <i class="fas fa-edit"></i></a>
                         <!-- Delete Cocktail -->
-                            <button class="btn button" id="del-ct-btn">Delete</button>
+                            <button class="btn button" id="del-ct-btn">Delete <i class="fas fa-dumpster"></i></button>
                             <p class="d-none" id="r-u-sure">Are you sure you wish to delete this recipe?</p>
                             <a href="{{ url_for('delete_cocktail', recipe_id=recipe._id) }}" 
                             class="btn button d-none" id="y-del">Yes</a>
                             <a class="btn button d-none" id="n-del" function="dnone()">No</a>
                         <!-- Like Recipe -->
-                            <a class="btn button d-none" id="like-ct-btn">Like</a>
+                            <a class="btn button d-none" id="like-ct-btn">Love <i class="fas fa-heart"></i></a>
                         </div>
                     </div>
                 </div>

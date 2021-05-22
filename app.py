@@ -166,6 +166,13 @@ def delete_cocktail(recipe_id):
     return redirect(url_for('get_recipes'))
 
 
+@app.route("/get_categories")
+def get_categories():
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    return render_template("categories.html", categories=categories)
+
+
+
 @app.route("/recipe/<recipe_id>")
 def recipe(recipe_id):
     # Find specific recipe in db

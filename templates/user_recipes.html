@@ -2,7 +2,7 @@
 {% block content %}
 
 <hr>
-<h3 class="mt-3 text-center text-uppercase">Manage Recipes</h3>
+<h3 class="mt-3 text-center text-uppercase">Manage Site Recipes</h3>
 <hr>
 
 <div class="container mt-3">
@@ -27,8 +27,13 @@
                         data-parent="#accordionExample">
                         <div class="card-body">
                             <p><strong>Created by:</strong> {{ recipe.created_by }}</p>
-                            <a href="" class="btn button">Edit <i class="fas fa-edit"></i></a>
-                            <a href="" class="btn button">Delete <i class="fas fa-dumpster"></i></a>
+                            <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" 
+                            class="btn button">View <i class="far fa-eye"></i></a>
+                            <a href="{{ url_for('edit_cocktail', recipe_id=recipe._id) }}" 
+                            class="btn button">Edit <i class="fas fa-edit"></i></a>
+                            <!-- ADD DEFENSIVE PROGRAMMING- R U SURE U WISH TO DELETE?? -->
+                            <a href="{{ url_for('delete_cocktail', recipe_id=recipe._id) }}" 
+                            class="btn button">Delete <i class="fas fa-dumpster"></i></a>
                         </div>
                     </div>
                 

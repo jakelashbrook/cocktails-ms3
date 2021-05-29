@@ -17,4 +17,8 @@ $( document ).ready(function() {
         $('#n-del').addClass('d-none');
     });
     
+    $('#edit-cn-btn').click(function() {
+        $('#accordionExample').addClass('d-none');
+        $('#edit-cn-area').removeClass('d-none');
+    });
 });

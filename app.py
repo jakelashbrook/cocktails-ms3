@@ -159,8 +159,8 @@ def edit_cocktail(recipe_id):
         "edit_cocktail.html", recipe=recipe, categories=categories)
 
 
-@app.route("/delete_cocktail/<recipe_id>")
-def delete_cocktail(recipe_id):
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Your recipe has been successfully deleted")
     return redirect(url_for('get_recipes'))
@@ -191,18 +191,27 @@ def delete_category(category_id):
     return redirect(url_for('get_categories'))
 
 
+@app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+def edit_category(category_id):
+    if request.method == "POST":
+        change = {
+            "category_name": request.form.get("category_name"),
+        }
+        mongo.db.categories.update({"_id": ObjectId(category_id)}, change)
+        flash("Category name has been successfully updated!")
+        return redirect(url_for('get_categories', username=session["user"]))
+    
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+        "categories.html", category=category, categories=categories)
+
+
+
 @app.route("/get_user_recipes")
 def get_user_recipes():
     recipes = mongo.db.recipes.find().sort("recipe_name", 1)
     return render_template("user_recipes.html", recipes=recipes)
-
-
-@app.route("/delete_user_recipes/<recipe_id>")
-def delete_user_recipes(recipe_id):
-    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    flash("The users recipe has been successfully deleted")
-    return redirect(url_for('get_user_recipes'))
-
 
 
 @app.route("/get_users")

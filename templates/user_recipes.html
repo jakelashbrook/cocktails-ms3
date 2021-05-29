@@ -32,8 +32,16 @@
                             <a href="{{ url_for('edit_cocktail', recipe_id=recipe._id) }}" 
                             class="btn button">Edit <i class="fas fa-edit"></i></a>
                             <!-- ADD DEFENSIVE PROGRAMMING- R U SURE U WISH TO DELETE?? -->
-                            <a href="{{ url_for('delete_cocktail', recipe_id=recipe._id) }}" 
-                            class="btn button">Delete <i class="fas fa-dumpster"></i></a>
+                            <a id="del-rec-dd" class="btn button">Delete 
+                                <i class="fas fa-dumpster"></i>
+                            </a>
+                             <div class="container ghost-wht text-center d-none col-12" id="del-rec-area">
+                            <p class="text-center ">Are you sure you wish to delete this?</p>
+                            <a class="btn button mb-2" 
+                            href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Yes</a>
+                            <button class="btn button mb-2" id="del-rec-no">No</button>
+
+                        </div>
                         </div>
                     </div>
                 

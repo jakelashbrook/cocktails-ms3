@@ -15,29 +15,58 @@
                 {% for category in categories %}
                 <div class="card-header ghost-wht" id="headingOne">
                     <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                        <button class="btn btn-link btn-block text-center grn-txt" type="button" data-toggle="collapse"
                             data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             {{ category.category_name }}
                         </button>
                     </h2>
                 </div>
 
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                    data-parent="#accordionExample">
-                    <div class="card-body">
-                       <a href="" class="btn button">Edit <i class="fas fa-edit"></i></a>
-                       <!-- ADD R U SURE U WISH TO DELETE FUNC. -->
-                       <a href="{{ url_for('delete_category', category_id=category._id) }}" 
-                       class="btn button">Delete <i class="fas fa-dumpster"></i></a>
+                <div id="collapseOne" class="collapse show card" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body p-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-6 text-center">
+                        <button id="edit-cat-dd" class="btn button">Edit <i class="fas fa-edit"></i></button>
+                        <!-- If Edit Clicked SHOW THIS -->
+                        <div class="container ghost-wht mb-3">
+                            <form class="container d-none"id="edit-cat-area" method="POST" action="{{ url_for('edit_category') }}">
+                                <div class="row p-3">
+                                    <div class="col-8">
+                                        <input type="text" name="category_name" id="category_name" class="form-control"
+                                            placeholder="Category Name:">
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="submit" value="Submit" class="btn button mb-2">Edit 
+                                            <i class="fas fa-edit"></i></i></button>
+                                        <a id="canx-cat-edit" class="btn button">Cancel  
+                                            <i class="fas fa-window-close"></i></a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                        <!-- ADD R U SURE U WISH TO DELETE FUNC. -->
+                        <div class="col-sm-12 col-lg-6 text-center">
+                        <button id="del-cat-dd" class="btn button">Delete <i
+                                class="fas fa-dumpster"></i></button>
+                        <div class="container ghost-wht text-center d-none col-12" id="del-cat-area">
+                            <p class="text-center ">Are you sure you wish to delete this?</p>
+                            <a class="btn button mb-2" 
+                            href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Yes</a>
+                            <button class="btn button mb-2" id="del-cat-no">No</button>
+
+                        </div>
                     </div>
                 </div>
+                </div>
+                </div>
                 {% endfor %}
-            </div>
-        </div>
-        </div>
+                </div>
+                </div>
+                </div>
         <!-- Add a new category -->
         <hr>
-        <h3 class="mt-3 text-center text-uppercase">Add Category</h3>
+        <h3 class="mt-3 text-center text-uppercase">Add New Category</h3>
         <hr>
         <div class="container ghost-wht card mb-3">
             <form class="container pt-3 pb-3" method="POST" action="{{ url_for('add_category') }}">

@@ -23,11 +23,14 @@
                         </h2>
                     </div>
 
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                    <div id="collapseOne" class="collapse show text-center" aria-labelledby="headingOne"
                         data-parent="#accordionExample">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <!-- Add Is Admin toggle -->
-                            <a href="{{ url_for('delete_user', user_id=user._id) }}" class="btn button">Delete <i class="fas fa-dumpster"></i></a>
+                            <a href="{{ url_for('delete_user', user_id=user._id) }}" class="btn button">Delete <i class="fas fa-dumpster"></i>
+                            </a>
+                            <br><br>
+                            <small class="text-uppercase">Once a User is deleted, their account and/or content cannot be restored.</small>
                         </div>
                     </div>
                 

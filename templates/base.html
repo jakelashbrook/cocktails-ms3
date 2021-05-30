@@ -95,9 +95,13 @@
                 </li>
             </ul>
             <!-- Search application -->
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn button border my-2 my-sm-0" type="submit">Search <i class="fas fa-search"></i></button>
+            <form class="form-inline my-2 my-lg-0" action="{{ url_for('search') }}" method="POST">
+                <input class="form-control mr-sm-2" type="search" name="query" id="query"
+                placeholder="Search Cocktails" aria-label="Search Cocktails" minlength="3" required>
+                <button class="btn button border my-2 my-sm-0" 
+                type="submit">Search <i class="fas fa-search"></i></button>
+                <a  href="{{ url_for('cocktails') }}" class="btn button border my-2 my-sm-0" 
+                type="submit">Reset <i class="fas fa-undo"></i></a>
             </form>
         </div>
     </nav>
@@ -134,7 +138,7 @@
         <footer class="container ghost-wht card">
             <div class="row pt-3">
                 <div class="col-sm-12 col-lg-4">
-                    <h6>Get the latest Promotions</h6>
+                    <h6 class="text-uppercase">Promotions</h6>
                     <hr>
                     <p class="grn-txt">Fill in your email and receive the latest cocktail offers around the UK!</p>
                     <!-- Form for PROMO sign ups -->
@@ -151,12 +155,12 @@
                     </form>
                 </div>
                 <div class="col-sm-12 col-lg-4 d-none d-lg-block">
-                    <h6>Get in Contact!</h6>
+                    <h6 class="text-uppercase">Contact Us</h6>
                     <hr>
                     <p class="grn-txt">Got a question? Get in touch with us now and we'll do our best to help!</p>
                 </div>
                 <div class="col-sm-12 col-lg-4">
-                    <h6>Follow us on Social Media!</h6>
+                    <h6 class="text-uppercase">Social Media</h6>
                     <hr>
                     <p class="grn-txt">Go along and follow us on Social Media for all the latest news and updates!</p>
                 </div>

@@ -85,4 +85,11 @@ a:hover {
     color: #009688;
 }
 
+/* Cocktail Category Buttons */
+#tail-cat-btns {
+    display: inline;
+}
 
+#tail-cat-btns li {
+    display: inline-block;
+}

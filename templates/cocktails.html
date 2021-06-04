@@ -7,6 +7,16 @@
 <hr>
 
 <div class="container d-none d-md-block">
+    <div class="container text-center">
+    <ul id="tail-cat-btns">
+                <li><a href="{{ url_for('cocktails', category='All') }}" class="btn button">All Cocktails</a></li>
+                <li><a href="{{ url_for('cocktails', category='Mocktails') }}" class="btn button">Mocktails</a></li>
+                <li><a href="{{ url_for('cocktails', category='Fruity') }}" class="btn button">Fruity</a></li>
+                <li><a href="{{ url_for('cocktails', category='Sour') }}" class="btn button">Sour</a></li>
+                <li><a href="{{ url_for('cocktails', category='Dessert') }}" class="btn button">Dessert</a></li>
+                <li><a href="{{ url_for('cocktails', category='Sparkling') }}" class="btn button">Sparkling</a></li>
+            </ul>
+</div>
                 <div class="row">
                     <!-- Iterate through recipes -->
                     {% for recipe in recipes %}
@@ -31,7 +41,11 @@
 <hr>
 <h3 class="mt-3 text-center text-uppercase">No Cocktails Found</h3>
 <hr>
-
+<div class="container ghost-wht text-center card">
+<p>Do you have a cocktail that would be perfect for this category? If so, why not <a href="{{ url_for('add_cocktail') }}">add it now?</a></p>
+<p>Don't have an account yet? <a href="{{ url_for('register') }}">Sign up now!</a></p>
+<a href="{{ url_for('get_cocktails') }}" class="btn button m-3">Go Back to Cocktails</a>
+</div>
 {% endif %}
         
 

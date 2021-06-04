@@ -54,7 +54,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('cocktails') }}" role="button">
+                    <a class="nav-link" href="{{ url_for('get_cocktails') }}" role="button">
                         Cocktails
                     </a>
                 </li>
@@ -72,13 +72,14 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="accountDropdown">
                         <a class="dropdown-item" href="{{ url_for('add_cocktail') }}">Add Cocktail</a>
+                        <a class="dropdown-item" href="{{ url_for('profile', username=session['user'])}}">My Tails</a>
                         {% if session.user|lower == "admin"|lower %}
                         <a class="dropdown-item" href="{{ url_for('get_categories') }}">Manage Categories</a>
                         <a class="dropdown-item" href="{{ url_for('get_user_recipes') }}">Manage Recipes</a>
                         <a class="dropdown-item" href="{{ url_for('get_users') }}">Manage Users</a>
                         <a class="dropdown-item" href="{{ url_for('get_promotions') }}">Manage Promotions</a>
+                        <a class="dropdown-item" href="#">Messages</a>
                         {% endif %}
-                        <a class="dropdown-item" href="{{ url_for('profile', username=session['user'])}}">My Tail</a>
                         <!-- Hidden until function created -->
                         <div class="dropdown-divider d-none"></div>
                         <a class="dropdown-item d-none" href="#">Delete Account</a>
@@ -96,7 +97,7 @@
                 placeholder="Search Cocktails" aria-label="Search Cocktails" minlength="3" required>
                 <button class="btn button border my-2 my-sm-0" 
                 type="submit">Search <i class="fas fa-search"></i></button>
-                <a  href="{{ url_for('cocktails') }}" class="btn button border my-2 my-sm-0" 
+                <a  href="{{ url_for('get_cocktails') }}" class="btn button border my-2 my-sm-0" 
                 type="submit">Reset <i class="fas fa-undo"></i></a>
             </form>
         </div>

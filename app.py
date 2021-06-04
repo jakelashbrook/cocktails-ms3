@@ -108,10 +108,30 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route("/cocktails", methods=["GET", "POST"])
-def cocktails():
+@app.route("/get_cocktails", methods=["GET", "POST"])
+def get_cocktails():
     recipes = list(mongo.db.recipes.find())
     return render_template('cocktails.html', recipes=recipes)
+
+
+@app.route("/cocktails/<category>")
+def cocktails(category):
+    # Show recipes of that specific category
+    if category == "All":
+        recipes = list(mongo.db.recipes.find())
+    elif category == "Mocktails":
+        recipes = list(mongo.db.recipes.find({"category_name": "Mocktails"}))
+    elif category == "Fruity":
+        recipes = list(mongo.db.recipes.find({"category_name": "Fruity"}))
+    elif category == "Sour":
+        recipes = list(mongo.db.recipes.find({"category_name": "Sour"}))
+    elif category == "Dessert":
+        recipes = list(mongo.db.recipes.find({"category_name": "Dessert"}))
+    elif category == "Sparkling":
+        recipes = list(mongo.db.recipes.find({"category_name": "Sparkling"}))
+
+    return render_template(
+        "cocktails.html", recipes=recipes, category=category)
 
 
 @app.route("/add_cocktail", methods=["GET", "POST"])

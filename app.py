@@ -247,6 +247,25 @@ def recipe(recipe_id):
     return render_template("cocktail-recipe.html", recipe=recipe)
 
 
+@app.route("/get_promotions")
+def get_promotions():
+    promotions = mongo.db.promotions.find().sort("email", 1)
+    return render_template("promotions.html", promotions=promotions)
+
+
+@app.route("/add_promotion", methods=["GET", "POST"])
+def add_promotion():
+    if request.method == "POST":
+        email = {
+            "email_address": request.form.get("email_address"),
+        }
+        mongo.db.promotions.insert_one(email)
+        flash("You are now signed up for our Promotions")
+        return redirect(url_for('get_recipes'))
+    promotions = mongo.db.promotions.find().sort("email_address", 1)
+    return render_template("promotions.html", promotions=promotions)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

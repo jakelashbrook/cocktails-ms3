@@ -76,6 +76,7 @@
                         <a class="dropdown-item" href="{{ url_for('get_categories') }}">Manage Categories</a>
                         <a class="dropdown-item" href="{{ url_for('get_user_recipes') }}">Manage Recipes</a>
                         <a class="dropdown-item" href="{{ url_for('get_users') }}">Manage Users</a>
+                        <a class="dropdown-item" href="#">Manage Promotions</a>
                         {% endif %}
                         <a class="dropdown-item" href="{{ url_for('profile', username=session['user'])}}">My Tail</a>
                         <!-- Hidden until function created -->
@@ -137,12 +138,12 @@
                     <hr>
                     <p class="grn-txt">Fill in your email and receive the latest cocktail offers around the UK!</p>
                     <!-- Form for PROMO sign ups -->
-                    <form class="container" method="POST" action="">
+                    <form class="container" method="POST" action="{{ url_for('add_promotion') }}">
                         <div class="input-group mb-3">
                             <input type="email" class="form-control" placeholder="Email Address" aria-label="Email Address"
-                                aria-describedby="button-addon">
+                                aria-describedby="button-addon" name="email_address" id="email_address">
                             <div class="input-group-append">
-                                <button class="btn button" type="button" id="button-addon">Sign Up</button>
+                                <button class="btn button" type="submit" id="button-addon">Sign Up</button>
                             </div>
                             <small class="text-center mb-3">
                                 **We will not pass on your email address to 3rd parties!</small>

@@ -2,13 +2,13 @@
 {% block content %}
 
 <hr>
-<h3 class="mt-3 text-center text-uppercase">Promotions Registrees</h3>
+<h3 class="mt-3 text-center text-uppercase">Contact Book</h3>
 <hr>
 
 <div class="container mt-3">
     <div class="card ghost-wht">
         <div class="card-header text-center">
-            Emails Registered for Promotions
+            Visitors Registered for Promotions
         </div>
         <div class="card">
             <div class="card-body">
@@ -25,9 +25,9 @@
 
                     <div id="collapseOne" class="collapse show text-center" aria-labelledby="headingOne"
                         data-parent="#accordionExample">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center grn-txt">
                             <!-- Email Addresses of users registered for promotions -->
-                                {{ promotion.promotions }}
+                                {{ promotion.email_address }}
                             <br><br>
                             <small class="text-uppercase"></small>
                         </div>

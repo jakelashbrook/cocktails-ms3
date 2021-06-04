@@ -76,7 +76,7 @@
                         <a class="dropdown-item" href="{{ url_for('get_categories') }}">Manage Categories</a>
                         <a class="dropdown-item" href="{{ url_for('get_user_recipes') }}">Manage Recipes</a>
                         <a class="dropdown-item" href="{{ url_for('get_users') }}">Manage Users</a>
-                        <a class="dropdown-item" href="#">Manage Promotions</a>
+                        <a class="dropdown-item" href="{{ url_for('get_promotions') }}">Manage Promotions</a>
                         {% endif %}
                         <a class="dropdown-item" href="{{ url_for('profile', username=session['user'])}}">My Tail</a>
                         <!-- Hidden until function created -->

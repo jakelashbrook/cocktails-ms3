@@ -28,6 +28,10 @@ a:hover {
     background-color: #F5F3F7;
 }
 
+.ghost-wht-txt {
+    color:  #F5F3F7;
+}
+
 .light-gray {
     background-color: #D7D6D6;
 }
@@ -43,6 +47,8 @@ a:hover {
 .dp-txt {
     color: #210124;
 }
+
+
 /* Buttons and Links */
 .button {
     background-color: #D7D6D6;

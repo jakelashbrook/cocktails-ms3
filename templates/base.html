@@ -60,11 +60,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="" role="button">
-                        Shop
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="" role="button">
                         Contact
                     </a>
                 </li>
@@ -127,7 +122,6 @@
         {% endwith %}
     </section>
 
-
     <main class="container">
     {% block content %}
     {% endblock%}
@@ -137,6 +131,7 @@
     <div class="container mt-3 mb-0 text-center" style="position: sticky;">
         <footer class="container ghost-wht card">
             <div class="row pt-3">
+            <!-- Sign Up for Promotions -->
                 <div class="col-sm-12 col-lg-4">
                     <h6 class="text-uppercase">Promotions</h6>
                     <hr>
@@ -154,15 +149,32 @@
                         </div>
                     </form>
                 </div>
+                <!-- Contact Us Area -->
                 <div class="col-sm-12 col-lg-4 d-none d-lg-block">
                     <h6 class="text-uppercase">Contact Us</h6>
                     <hr>
                     <p class="grn-txt">Got a question? Get in touch with us now and we'll do our best to help!</p>
+                    <div class="text-center"><a href="#" class="btn button">Contact Us</a></div>
                 </div>
+                <!-- Social Media Links -->
                 <div class="col-sm-12 col-lg-4">
                     <h6 class="text-uppercase">Social Media</h6>
                     <hr>
                     <p class="grn-txt">Go along and follow us on Social Media for all the latest news and updates!</p>
+                    <div class="mb-4">
+            <a class="btn button grn-txt m-1" href="https://www.facebook.com/"
+                role="button" data-mdb-ripple-color="dark" aria-label="Facebook" target="_blank" rel="noopener">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a class="btn button grn-txt m-1" href="https://twitter.com/"
+                role="button" data-mdb-ripple-color="dark" aria-label="Twitter" target="_blank" rel="noopener">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a class="btn button grn-txt m-1" href="https://www.instagram.com/"
+                role="button" data-mdb-ripple-color="dark" aria-label="Instagram" target="_blank" rel="noopener">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
                 </div>
             </div>
         </footer>

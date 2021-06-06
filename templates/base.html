@@ -18,10 +18,10 @@
     <!-- For any custom CSS styles to be injected here-->
     {% endblock %}
 </head>
-<body>
+<body class="light-mode">
     <div class="container" id="content-body">
         <div class="row">
-            <div class="col-6">
+            <div class="col-12">
                 <!-- Login/Sign Up and Logout Navigation -->
                 <div id="log-nav" class="pl-3 container-fluid">
                     {% if session.user %}
@@ -30,10 +30,9 @@
                     <a href="{{ url_for('login') }}" id="login">Login</a> | <a href="{{ url_for('register') }}"
                         id="register">Register</a>
                     {% endif %}
-                </div>
-                <div class="col-6">
                     <!-- Light/Dark Mode Toggle -->
-                    
+                    <button id="l-or-d-mode" class="btn button m-2 float-right" title="Change Mode">
+                        <i class="fas fa-sun"></i></button>
                 </div>
             </div>
         </div>

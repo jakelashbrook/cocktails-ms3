@@ -1,28 +1,51 @@
 /* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
 
+/* Colour Scheme Preferences  */
+:root {
+  color-scheme: light dark; /* both supported */
+}
+
 /* Light and Dark Mode */
-.light-mode {
-    background-image: url("/static/images/white-marble-bg.jpeg");
-    color: #210124;
+body {
+  --hr-color: #210124;
+  --text-color: #210124;
+  --background-image: url("/static/images/white-marble-bg.jpeg");
+  --card-title: #210124;
+}
+body.dark-mode {
+  --hr-color: #fafafa;
+  --text-color: #fafafa;
+  --background-image: url("/static/images/black-marble-bg.jpeg");
+  --card-title: #210124;
 }
 
-.dark-mode {
-    background-image: url("/static/images/black-marble-bg.jpeg");
+@media (prefers-color-scheme: dark) {
+  /* defaults to dark theme */
+  body {
+    --hr-color: #210124;
+    --text-color: #fafafa;
+    --background-image: url("/static/images/black-marble-bg.jpeg");
+  }
+  body.light-mode {
+    --hr-color: #210124;
+    --text-color: #210124;
+    --background-image: url("/static/images/white-marble-bg.jpeg");
+  }
 }
 
+body {
+  background: var(--background-image);
+  color: var(--text-color);
+}
 
 /* Body Classes */ 
 hr {
-    background-color: #210124;
+    background-color: var(--hr-color)
 }
 
-.hr-dm {
-    background-color: #fafafa;
-}
-
-.dm-h3 {
-    color: #fafafa;
+h4 {
+    color: var(--card-title);
 }
 
 .dm-f-txt {

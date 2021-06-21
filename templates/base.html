@@ -58,11 +58,6 @@
                         Cocktails
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="" role="button">
-                        Contact
-                    </a>
-                </li>
                 <!-- Account -->
                 {% if session.user %}
                 <li class="nav-item dropdown">
@@ -72,7 +67,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="accountDropdown">
                         <a class="dropdown-item" href="{{ url_for('add_cocktail') }}">Add Cocktail</a>
-                        <a class="dropdown-item" href="{{ url_for('profile', username=session['user'])}}">My Tails</a>
+                        <a class="dropdown-item" href="{{ url_for('profile', username=session['user'])}}">My Cocktails</a>
                         {% if session.user|lower == "admin"|lower %}
                         <a class="dropdown-item" href="{{ url_for('get_categories') }}">Manage Categories</a>
                         <a class="dropdown-item" href="{{ url_for('get_user_recipes') }}">Manage Recipes</a>
@@ -134,7 +129,7 @@
         <footer class="container ghost-wht card">
             <div class="row pt-3">
             <!-- Sign Up for Promotions -->
-                <div class="col-sm-12 col-lg-4">
+                <div class="col-sm-12 col-lg-6">
                     <h6 class="text-uppercase">Promotions</h6>
                     <hr>
                     <p class="grn-txt">Fill in your email and receive the latest cocktail offers around the UK!</p>
@@ -146,20 +141,16 @@
                             <div class="input-group-append">
                                 <button class="btn button" type="submit" id="button-addon">Sign Up</button>
                             </div>
+                            <div class="container">
                             <small class="text-center mb-3">
-                                **We will not pass on your email address to 3rd parties!</small>
+                                **We will not pass on your email address to 3rd parties!
+                            </small>
+                            </div> 
                         </div>
                     </form>
                 </div>
-                <!-- Contact Us Area -->
-                <div class="col-sm-12 col-lg-4 d-none d-lg-block">
-                    <h6 class="text-uppercase">Contact Us</h6>
-                    <hr>
-                    <p class="grn-txt">Got a question? Get in touch with us now and we'll do our best to help!</p>
-                    <div class="text-center"><a href="#" class="btn button">Contact Us</a></div>
-                </div>
                 <!-- Social Media Links -->
-                <div class="col-sm-12 col-lg-4">
+                <div class="col-sm-12 col-lg-6">
                     <h6 class="text-uppercase">Social Media</h6>
                     <hr>
                     <p class="grn-txt">Go along and follow us on Social Media for all the latest news and updates!</p>

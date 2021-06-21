@@ -14,8 +14,8 @@ body {
   --card-title: #210124;
 }
 body.dark-mode {
-  --hr-color: #fafafa;
-  --text-color: #fafafa;
+  --hr-color: #009688;
+  --text-color: #009688;
   --background-image: url("/static/images/black-marble-bg.jpeg");
   --card-title: #210124;
 }
@@ -24,7 +24,7 @@ body.dark-mode {
   /* defaults to dark theme */
   body {
     --hr-color: #210124;
-    --text-color: #fafafa;
+    --text-color: #210124;
     --background-image: url("/static/images/black-marble-bg.jpeg");
   }
   body.light-mode {

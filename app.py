@@ -93,12 +93,26 @@ def profile(username):
     # grab session users username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    # grabs recipes created by a specific user
     recipes = mongo.db.recipes.find().sort("created_by", 1)
 
     if session["user"]:
         return render_template("profile.html", recipes=recipes, username=username)
 
     return redirect(url_for('login'))
+
+
+@app.route("/deactivate", methods=["GET", "POST"])
+def deactivate():
+    # add username of account to db
+    if request.method == "POST":
+        account = {
+            "acc_username": request.form.get("acc_username")
+        }
+        mongo.db.deactivate.insert_one(account)
+        flash(
+            "Your requested deactivation has been received and will be processed by the admin within 48 hours")
+        return redirect(url_for('get_cocktails'))
 
 
 @app.route("/logout")
@@ -266,6 +280,18 @@ def recipe(recipe_id):
         return render_template("cocktails.html")
 
     return render_template("cocktail-recipe.html", recipe=recipe)
+
+
+@app.route("/loved", methods=["GET", "POST"])
+def loved():
+    if request.method == "POST":
+        loved = {
+            "recipe_name": request.form.get("recipe_name"),
+            "loved_by": session["user"]
+        }
+        mongo.db.loved.insert_one(loved)
+        flash("Thanks for spreading the love")
+        return render_template("cocktail-recipe.html", loved=loved)
 
 
 @app.route("/get_promotions")

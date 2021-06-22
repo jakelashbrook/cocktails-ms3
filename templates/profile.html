@@ -3,9 +3,13 @@
 
     <div class="container mt-3">
         <hr>
-        <h3 class="mt-3 text-center text-uppercase">{{ username }}'s Uploads</h3>
+        <h3 class="mt-3 text-center text-uppercase">{{ username }}'s Profile</h3>
         <hr>
         <div class="row text-center ghost-wht">
+            <div class="container">
+            <h3 class="m-3">Your Uploads</h3>
+            <hr>
+            </div>
             <!-- Iterate through recipes -->
             {% for recipe in recipes %}
             {% if session.user == recipe.created_by %}
@@ -24,6 +28,42 @@
             </div>
             {% endif %}
             {% endfor %}
+        </div>
+        <div class="row text-center ghost-wht">
+            <div class="col-12">
+            <p class="text-center">Do you want to add a new cocktail? <a href="{{ url_for('add_cocktail') }}">Click here</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container mt-3 ghost-wht">
+        <div class="row text-center">
+            <div class="col-12">
+                <h3 class="m-3">Deactivate your account</h3>
+                <hr>
+                <p class="grn-txt">Would you like to take a break from What's your Tail?</p>
+                <p>For security purposes, currently all account permissions must be requested and approved by the admin.</p>
+                <form class="container" method="POST" action="{{ url_for('deactivate') }}">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Your Username"
+                                aria-label="Account Username" aria-describedby="button-addon" name="acc_username"
+                                id="acc_username">
+                            <div class="input-group-append">
+                                <button class="btn button" type="submit" id="button-addon">Request Now</button>
+                            </div>
+                            <div class="container">
+                                <small class="text-center mb-3">
+                                    **We will process your request within 48 hours!
+                                </small>
+                                <br>
+                                <small>
+                                    **Please be aware this will only remove your access to the site and not any content already uploaded.
+                                </small>
+                            </div>
+                        </div>
+                    </form>
+                <br>
+            </div>
         </div>
     </div>
 

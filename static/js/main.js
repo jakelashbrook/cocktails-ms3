@@ -53,5 +53,4 @@ $( document ).ready(function() {
     $(".no-del-btn").click(function() {
         $('.delete-area').addClass('d-none');
     });
-
 });

@@ -274,25 +274,26 @@ def delete_user(user_id):
 def recipe(recipe_id):
     # Find specific recipe in db
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    # Find users who love recipe
+    loved = mongo.db.loved.find().sort("loved_by", 1)
 
     if not recipe:
         flash("Recipe does not exist")
         return render_template("cocktails.html")
 
-    return render_template("cocktail-recipe.html", recipe=recipe)
+    return render_template("cocktail-recipe.html", recipe=recipe, loved=loved)
 
 
-@app.route("/loved", methods=["GET", "POST"])
-def loved():
+@app.route("/add_love", methods=["GET", "POST"])
+def add_love():
     if request.method == "POST":
         loved = {
-            "recipe_name": request.form.get("recipe_name"),
-            "loved_by": session["user"]
+            "loved_by": request.form.get("loved_by"),
+            "recipe_name": request.form.get("recipe_name")
         }
-        mongo.db.loved.insert_one(loved)
-        flash("Thanks for spreading the love")
-        return render_template("cocktail-recipe.html", loved=loved)
-
+        return redirect(url_for("get_cocktails"))
+        flash("Thanks for sharing the love")
+    return render_template("cocktail-recipe.html", loved=loved)
 
 @app.route("/get_promotions")
 def get_promotions():

@@ -169,7 +169,7 @@ def add_cocktail():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Cocktail recipe has been successfully added")
-        return redirect(url_for('cocktails/<category>'))
+        return redirect(url_for('get_cocktails'))
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_cocktail.html", categories=categories)
 

@@ -34,10 +34,10 @@
                     <div class="row">
                         <!-- Edit the recipe -->
                         <div class="col-sm-12 col-lg-6 text-center">
-                            <a href="{{ url_for('edit_cocktail', recipe_id=recipe._id)}}" class="btn button"
+                            <a href="{{ url_for('edit_cocktail', recipe_id=recipe._id)}}" class="btn button mb-2"
                                 id="edit-ct-btn">Edit <i class="fas fa-edit"></i></a>
                             <!-- Delete Cocktail -->
-                            <button class="btn button" id="del-ct-btn">Delete <i class="fas fa-dumpster"></i></button>
+                            <button class="btn button mb-2" id="del-ct-btn">Delete <i class="fas fa-dumpster"></i></button>
                             <p class="d-none" id="r-u-sure">Are you sure you wish to delete this recipe?</p>
                             <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn button d-none"
                                 id="y-del">Yes</a>
@@ -89,7 +89,7 @@
             </div>
             <div class="col-12">
                 <h5 class="mt-3 grn-txt">Users who loved this</h5>
-                {% if loved.recipe_name == loved.loved_by %}
+                {% if loved.recipe_name == recipe.recipe_name %}
                     {% for love in loved %}
                         <p>{{ love.loved_by|e }}</p>
                     {% endfor %}

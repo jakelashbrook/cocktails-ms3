@@ -135,18 +135,18 @@ def cocktails(category):
     if category == "All":
         recipes = list(mongo.db.recipes.find())
     elif category == "Mocktails":
-        recipes = list(mongo.db.recipes.find({"category_name": "Mocktails"}))
+        recipes = list(mongo.db.recipes.find({"category_name": "mocktails"}))
     elif category == "Fruity":
-        recipes = list(mongo.db.recipes.find({"category_name": "Fruity"}))
+        recipes = list(mongo.db.recipes.find({"category_name": "fruity"}))
     elif category == "Sour":
-        recipes = list(mongo.db.recipes.find({"category_name": "Sour"}))
+        recipes = list(mongo.db.recipes.find({"category_name": "sour"}))
     elif category == "Dessert":
-        recipes = list(mongo.db.recipes.find({"category_name": "Dessert"}))
+        recipes = list(mongo.db.recipes.find({"category_name": "dessert"}))
     elif category == "Sparkling":
-        recipes = list(mongo.db.recipes.find({"category_name": "Sparkling"}))
+        recipes = list(mongo.db.recipes.find({"category_name": "sparkling"}))
 
     return render_template(
-        "cocktails.html", recipes=recipes, category=category)
+        "cocktails.html", category=category, recipes=recipes)
 
 
 @app.route("/add_cocktail", methods=["GET", "POST"])
@@ -194,7 +194,7 @@ def edit_cocktail(recipe_id):
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, edit)
         flash("Cocktail recipe has been successfully updated!")
-        return redirect(url_for('cocktails', username=session["user"]))
+        return redirect(url_for('get_cocktails', username=session["user"]))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)

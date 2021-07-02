@@ -2,13 +2,16 @@
 {% block content %}
 
 {% if recipes|length > 0 %}
-<hr>
-<h3 class="mt-3 text-center text-uppercase">Cocktails</h3>
-<hr>
 
 <div class="container d-none d-md-block">
-    <div class="container text-center">
-    <ul id="tail-cat-btns">
+    <div class="row ghost-wht mt-3">
+        <div class="container">
+            <hr>
+            <h3 class="text-center text-uppercase">Cocktails</h3>
+            <hr>
+        </div>
+        <div class="container text-center">
+            <ul id="tail-cat-btns">
                 <li><a href="{{ url_for('cocktails', category='All') }}" class="btn button">All Cocktails</a></li>
                 <li><a href="{{ url_for('cocktails', category='Mocktails') }}" class="btn button">Mocktails</a></li>
                 <li><a href="{{ url_for('cocktails', category='Fruity') }}" class="btn button">Fruity</a></li>
@@ -16,40 +19,40 @@
                 <li><a href="{{ url_for('cocktails', category='Dessert') }}" class="btn button">Dessert</a></li>
                 <li><a href="{{ url_for('cocktails', category='Sparkling') }}" class="btn button">Sparkling</a></li>
             </ul>
-</div>
-                <div class="row ghost-wht mt-3">
-                    <!-- Iterate through recipes -->
-                    {% for recipe in recipes %}
-                    <div class="col-sm-12 col-md-6 col-lg-3 mt-3 mb-3">
-                        <div class="card" style="width:100%; height: 300px; object-fit:cover;">
-                            <img class="card-img-top" id="recipe-card" src="{{ recipe.img_url }}" 
-                            alt="{{ recipe.recipe_name }}" style="width:100%; height: 300px; opacity: 0.65;">
-                            <div class="card-img-overlay text-center">
-                                <div class="card-body">
-                                <!-- Print recipe name from database -->
-                                <h4 class="card-title font-weight-bold">{{ recipe.recipe_name }}</h4>
-                                </div>
-                                <!-- Print recipe summary from database -->
-                                <div style="position: absolute; bottom: 15px; left:33%;">
-                                <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="btn button">TRY NOW</a>
-                                </div>
-                            </div>
-                        </div>
+        </div>
+        <!-- Iterate through recipes -->
+        {% for recipe in recipes %}
+        <div class="col-sm-12 col-md-6 col-lg-3 mt-3 mb-3">
+            <div class="card" style="width:100%; height: 300px; object-fit:cover;">
+                <img class="card-img-top" id="recipe-card" src="{{ recipe.img_url }}" alt="{{ recipe.recipe_name }}"
+                    style="width:100%; height: 300px; opacity: 0.65;">
+                <div class="card-img-overlay text-center">
+                    <div class="card-body">
+                        <!-- Print recipe name from database -->
+                        <h4 class="card-title font-weight-bold">{{ recipe.recipe_name }}</h4>
                     </div>
-                    {% endfor %}
+                    <!-- Print recipe summary from database -->
+                    <div style="position: absolute; bottom: 15px; left:33%;">
+                        <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="btn button">TRY NOW</a>
+                    </div>
                 </div>
             </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% else %}
 
 <hr>
 <h3 class="mt-3 text-center text-uppercase">No Cocktails Found</h3>
 <hr>
 <div class="container ghost-wht text-center card">
-<p>Do you have a cocktail that would be perfect for this category? If so, why not <a href="{{ url_for('add_cocktail') }}">add it now?</a></p>
-<p>Don't have an account yet? <a href="{{ url_for('register') }}">Sign up now!</a></p>
-<a href="{{ url_for('get_cocktails') }}" class="btn button m-3">Go Back to Cocktails</a>
+    <p>Do you have a cocktail that would be perfect for this category? If so, why not <a
+            href="{{ url_for('add_cocktail') }}">add it now?</a></p>
+    <p>Don't have an account yet? <a href="{{ url_for('register') }}">Sign up now!</a></p>
+    <a href="{{ url_for('get_cocktails') }}" class="btn button m-3">Go Back to Cocktails</a>
 </div>
 {% endif %}
-        
+
 
 {% endblock %}

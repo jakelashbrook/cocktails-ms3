@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <hr>
-    <h3 class="mt-3 text-center text-uppercase">Add Cocktail Recipe</h3>
-    <hr>
-
-    <div class="container ghost-wht card">
-        <h4 class="text-center pt-3">Tell everyone your tail!</h4>
+    <div class="container ghost-wht card mt-3">
+        <div class="container">
+            <hr>
+            <h3 class="mt-3 text-center text-uppercase">Add Cocktail Recipe</h3>
+            <hr>
+        </div>
+        <h4 class="text-center pt-3 grn-txt">Tell everyone your tail!</h4>
         <form class="container pt-3" method="POST" action="{{ url_for('add_cocktail') }}">
             <div class="row">
                 <!-- Input Cocktail Name -->

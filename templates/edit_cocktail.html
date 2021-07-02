@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-
-    <hr>
-    <h3 class="mt-3 text-center text-uppercase">Edit Cocktail Recipe</h3>
-    <hr>
-
     <div class="container ghost-wht card">
+        <div class="container">
+            <hr>
+            <h3 class="mt-3 text-center text-uppercase">Edit Cocktail Recipe</h3>
+            <hr>
+        </div>
         <h4 class="text-center pt-3">Edit your tail!</h4>
         <form class="container pt-3" method="POST" action="{{ url_for('edit_cocktail', recipe_id=recipe._id) }}">
             <div class="row">

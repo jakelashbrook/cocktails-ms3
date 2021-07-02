@@ -15,7 +15,7 @@
             {% for recipe in mobile_recipes %}
             {% if loop.index < 8 %}
             <div class="col-12">
-                <div class="card mb-3" style="width:100%; height: 300px;">
+                <div class="card mb-3" style="width:100%; height: 300px; object-fit:cover;">
                     <!-- Print Recipe Image -->
                     <img class="card-img-top" src="{{ recipe.img_url }}" alt="{{ recipe.recipe_name }}"
                         style="width:100%; height: 300px; opacity:0.5;">
@@ -39,15 +39,18 @@
             {% for recipe in recipes %}
             {% if loop.index < 9 %}
             <div class="col-md-6 col-lg-3 mt-3 mb-3">
-                <div class="card" style="width:100%; height: 300px;">
+                <div class="card" style="width:100%; height: 300px; object-fit:cover;">
                     <img class="card-img-top" id="recipe-card" src="{{ recipe.img_url }}" alt="{{ recipe.recipe_name }}"
                         style="width:100%; height: 300px; opacity: 0.65;">
                     <div class="card-img-overlay text-center">
+                        <div class="card-body">
                         <!-- Print recipe name from database -->
                         <h4 class="card-title font-weight-bold">{{ recipe.recipe_name }}</h4>
-                        <br><br><br><br>
+                        </div>
+                        <div style="position: absolute; bottom: 15px; left:33%;">
                         <!-- Print recipe summary from database -->
                         <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="btn button">TRY NOW</a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -72,11 +75,14 @@
                     <img class="card-img-top" src="https://www.drinkstuff.com/productimg/136973.jpg"
                         alt="Cocktail Stirrers" style="width:100%; height: 300px; opacity: 0.65;">
                     <div class="card-img-overlay text-center">
+                        <div class="card-body">
                         <h4 class="card-title font-weight-bold">Cocktail Stirrers</h4>
-                        <br><br><br><br>
+                        </div>
                         <!-- Go to store -->
+                        <div style="position: absolute; bottom: 15px; left:33%;">
                         <a href="https://www.drinkstuff.com/products/product.asp?ID=21475&affID=56654444&prodID=21475&utm_term=&utm_campaign=Shopping+%7C+Cocktail+%7C+Smart&utm_source=adwords&utm_medium=ppc&hsa_acc=3671107430&hsa_cam=10650194388&hsa_grp=104808724683&hsa_ad=451441220596&hsa_src=u&hsa_tgt=pla-904104336238&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjwnueFBhChARIsAPu3YkRJx67TGLDDbtVqMq5mRV_YUtSCn-kvrZwEnCRYAVwZMh-cleB0ijAaAg7MEALw_wcB#.YLoLsrVKhPY"
                             target="_blank" class="btn button">BUY NOW</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -87,11 +93,14 @@
                         src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcROCVTfLWJRGWQ-ROZUt194KukUGs5ZADtsmKCTKEEOmKAJ0p4BH12BPQR47okD8_0Repi-Ogya6MRI2TR17dhxahmx-Fd0I_Pf-bFoDYRwnp5LiXuUOWdy&usqp=CAE"
                         alt="Mixed Cocktail Accesory set" style="width:100%; height: 300px; opacity: 0.65;">
                     <div class="card-img-overlay text-center">
+                        <div class="card-body">
                         <h4 class="card-title font-weight-bold">Mixed Set</h4>
-                        <br><br><br><br>
+                        </div>
                         <!-- Go to store -->
+                        <div style="position: absolute; bottom: 15px; left:33%;">
                         <a href="https://www.google.com/shopping/product/13623826842235685523?q=cocktail+accessories&prds=eto:15950185072495434859_0;9569318185080691541_0&sa=X&ved=0ahUKEwix8L3X4P3wAhXhyIUKHcv4AOAQ9pwGCAU"
                             class="btn button" target="_blank">BUY NOW</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -102,11 +111,14 @@
                         src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcScrakm8tKYwMg5P8F976hAA9N5-C5YHrYzohIgoUSgMJp_GnukAqwA2aa3eeN50KL2WvPkayBJrGKjDQ5UKsHr0itqCuLjb9UeUhHM9dZ67758-5wC9eS7oA&usqp=CAE"
                         alt="Cocktail Gift Set" style="width:100%; height: 300px; opacity: 0.65;">
                     <div class="card-img-overlay text-center">
+                        <div class="card-body">
                         <h4 class="card-title font-weight-bold">Cocktail Gift Set</h4>
-                        <br><br><br><br>
+                        </div>
                         <!-- Go to store -->
+                        <div style="position: absolute; bottom: 15px; left:33%;">
                         <a href="https://www.google.com/shopping/product/14258049991094782753?q=cocktail+accessories&prds=eto:7853050691015459978_0;14676618902338761548_0&sa=X&ved=0ahUKEwiE17_k4f3wAhXpzoUKHbY0CXgQ9pwGCAU"
                             class="btn button" target="_blank">BUY NOW</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,11 +129,14 @@
                         src="https://cdn.shopify.com/s/files/1/1455/0700/products/Bergamot-2_900x.png?v=1616505288"
                         alt="Bergamot Jug" style="width:100%; height: 300px; opacity: 0.65;">
                     <div class="card-img-overlay text-center">
+                        <div class="card-body">
                         <h4 class="card-title font-weight-bold">Bergamot Jug</h4>
-                        <br><br><br><br>
+                        </div>
                         <!-- Go to store -->
+                        <div style="position: absolute; bottom: 15px; left:33%;">
                         <a href="https://flavourblaster.com/products/copy-of-cocktail-aromatic-bergamot-10ml?variant=39281537482849&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_campaign=gs-2021-05-08&utm_source=google&utm_medium=smart_campaign&gclid=Cj0KCQjwnueFBhChARIsAPu3YkTEgLdgP0TyTExPDSE2C5Dy_7R5IjbgaC1USkS5O7nSPLcz3wP13V0aAk3EEALw_wcB"
                             class="btn button" target="_blank">BUY NOW</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -136,11 +151,14 @@
                         src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSNFkC2psjOx9tHTfZt5Wx9hBlmw6rUJj1rHarwdBDsS8KHtONDg0fh8bYqr3RLeNdu2QrgJ_5Yf5rtLBhlMrpPBjBOiaoJAN92v4uMn1_q&usqp=CAE"
                         alt="Unicorn Tears Gin Liqueur" style="width:100%; height: 300px; opacity: 0.65;">
                     <div class="card-img-overlay text-center">
+                        <div class="card-body">
                         <h4 class="card-title font-weight-bold">Unicorn Tears Gin Liqueur</h4>
-                        <br><br><br><br>
+                        </div>
                         <!-- Go to store -->
+                        <div style="position: absolute; bottom: 15px; left:33%;">
                         <a href="https://www.google.com/shopping/product/9425162521808682162?q=alcohol+&prds=eto:8269038767680740173_0;16656966242015013466_0;16417537028388866976_0&sa=X&ved=0ahUKEwjC4Nmr5f3wAhUBJBoKHRFtBpAQ9pwGCAs"
                             target="_blank" class="btn button">BUY NOW</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -151,11 +169,14 @@
                         src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTpeeoSFnXHRpcpRF9huGXLMGSF6LS1hhhaipEbVWitW_6G4EC227Fl20ATrZLSSd4JEXOW8oGasxAUX71WI3J-M9SM12JVqHlq_aoSGHoJEu42puzTvTyo&usqp=CAE"
                         alt="Jagermeister" style="width:100%; height: 300px; opacity: 0.65;">
                     <div class="card-img-overlay text-center">
+                        <div class="card-body">
                         <h4 class="card-title font-weight-bold">Jagermeister</h4>
-                        <br><br><br><br>
+                        </div>
                         <!-- Go to store -->
+                        <div style="position: absolute; bottom: 15px; left:33%;">
                         <a href="https://www.google.com/shopping/product/11890224871883752520?q=alcohol+&prds=eto:16335694339837222943_0;15949873449527034906_0;11991942228318237249_0&sa=X&ved=0ahUKEwjn-YiD5v3wAhXIC2MBHdAyCOkQ9pwGCAo"
                             class="btn button" target="_blank">BUY NOW</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,11 +187,14 @@
                         src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ_aR3Nmegp-im1pLC190G1O0Dfx8rJrHQtaA05AnpJCqNPQvG8X56oHBVXiao3jMvBYrEWuSfZ1HdhEV-0EwcD9uLITiUeM5Pllq41VOWiF-0th4ZhqyE8&usqp=CAE"
                         alt="Apple Sourz" style="width:100%; height: 300px; opacity: 0.65;">
                     <div class="card-img-overlay text-center">
+                        <div class="card-body">
                         <h4 class="card-title font-weight-bold">Apple Sourz</h4>
-                        <br><br><br><br>
+                        </div>
                         <!-- Go to store -->
+                        <div style="position: absolute; bottom: 15px; left:33%;">
                         <a href="https://www.google.com/shopping/product/13817810697516317613?q=alcohol+&prds=eto:2565901271413672597_0;1087074724138219828_0;16540531864360526477_0&sa=X&ved=0ahUKEwjL5MGi5v3wAhXv0eAKHbiHDqwQ9pwGCAY"
                             class="btn button" target="_blank">BUY NOW</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -181,11 +205,14 @@
                         src="data:image/jpeg;base64,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"
                         alt="Midori Melon Liquor" style="width:100%; height: 300px; opacity: 0.65;">
                     <div class="card-img-overlay text-center">
+                        <div class="card-body">
                         <h4 class="card-title font-weight-bold">Midori Melon Liquor</h4>
-                        <br><br><br><br>
+                        </div>
                         <!-- Go to store -->
+                        <div style="position: absolute; bottom: 15px; left:33%;">
                         <a href="https://www.google.com/shopping/product/11938581359951471735?q=alcohol+&prds=eto:2605917411802358183_0;9293661212211387683_0;11577096405332293844_0&sa=X&ved=0ahUKEwiDrMbs5v3wAhUK8hQKHaH2D5YQ9pwGCAY"
                             class="btn button" target="_blank">BUY NOW</a>
+                        </div>
                     </div>
                 </div>
             </div>

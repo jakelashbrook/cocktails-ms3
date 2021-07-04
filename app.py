@@ -21,9 +21,11 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
+    # recipes to be shown
     recipes = list(mongo.db.recipes.find())
     # recipes to be shown on mobile devices
     mobile_recipes = [recipes[0], recipes[1], recipes[2]]
+
     return render_template(
         "home.html", recipes=recipes, mobile_recipes=mobile_recipes)
 
@@ -111,7 +113,6 @@ def delete_account():
     session.pop("user")
     flash("You have successfully removed your account, Sorry to see you go, Come back soon!")
     return redirect(url_for('get_recipes'))
-    
 
 
 @app.route("/logout")
@@ -124,6 +125,7 @@ def logout():
 
 @app.route("/get_cocktails", methods=["GET", "POST"])
 def get_cocktails():
+    # get the cocktails from the db
     recipes = list(mongo.db.recipes.find())
     return render_template('cocktails.html', recipes=recipes)
 

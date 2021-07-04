@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark light">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Tourney:wght@300&family=Yomogi&display=swap" rel="stylesheet">
     <!-- Compiled and minified Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -42,8 +46,9 @@
             </div>
         </div>
         <!-- Site Navigation (Bootstrap Materialize Component) -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light card">
-            <a class="navbar-brand pangolin" href="{{ url_for('get_recipes') }}">What's your Tail?</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light card yomogi font-weight-bold">
+            <a class="navbar-brand tourney text-uppercase montserrat font-weight-bold" 
+            href="{{ url_for('get_recipes') }}">What's your Tail?</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
@@ -79,7 +84,8 @@
                             <a class="dropdown-item" href="{{ url_for('get_user_recipes') }}">Manage Recipes</a>
                             <a class="dropdown-item" href="{{ url_for('get_users') }}">Manage Users</a>
                             <a class="dropdown-item" href="{{ url_for('get_promotions') }}">Manage Promotions</a>
-                            <a class="dropdown-item" href="#">Messages</a>
+                            <!-- Chatbox functionality to be added in future release-->
+                            <a class="dropdown-item d-none" href="#">Messages</a>
                             {% endif %}
                             <!-- Hidden until function created -->
                             <div class="dropdown-divider d-none"></div>

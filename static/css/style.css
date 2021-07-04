@@ -1,5 +1,19 @@
 /* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Tourney:wght@300&family=Yomogi&display=swap');
+
+/* Font Classes */
+.tourney {
+    font-family: "Tourney", sans-serif;
+}
+
+.montserrat {
+    font-family: "montserrat", sans-serif;
+    letter-spacing: 4px;
+}
+
+.yomogi {
+    font-family: "yomogi", sans-serif;
+}
 
 /* Colour Scheme Preferences  */
 :root {
@@ -62,6 +76,12 @@ a {
 
 a:hover {
     color: #210124;
+}
+
+h3 {
+    font-family: "montserrat", sans-serif;
+    letter-spacing: 2px;
+    font-weight: 600;
 }
 
 /* Colours */

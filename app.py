@@ -74,6 +74,7 @@ def login():
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome {}".format(request.form.get("username")))
+                    return redirect(url_for('get_cocktails'))
 
             else:
                 # invalid password entry
@@ -102,17 +103,15 @@ def profile(username):
     return redirect(url_for('login'))
 
 
-@app.route("/deactivate", methods=["GET", "POST"])
-def deactivate():
-    # add username of account to db
-    if request.method == "POST":
-        account = {
-            "acc_username": request.form.get("acc_username")
-        }
-        mongo.db.deactivate.insert_one(account)
-        flash(
-            "Your requested deactivation has been received and will be processed by the admin within 48 hours")
-        return redirect(url_for('get_cocktails'))
+@app.route("/delete_account", methods=["GET", "POST"])
+def delete_account():
+    # grab session userfrom db
+    mongo.db.users.remove({"username": session["user"]})
+    # logout user from session after removing account
+    session.pop("user")
+    flash("You have successfully removed your account, Sorry to see you go, Come back soon!")
+    return redirect(url_for('get_recipes'))
+    
 
 
 @app.route("/logout")
@@ -205,7 +204,7 @@ def edit_cocktail(recipe_id):
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    flash("Your recipe has been successfully deleted")
+    flash("The recipe has been successfully deleted")
     return redirect(url_for('get_recipes'))
 
 

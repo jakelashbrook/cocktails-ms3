@@ -17,8 +17,9 @@
                     {% for user in users %}
                     <div class="card-header ghost-wht" id="headingOne">
                         <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-center grn-txt" type="button" data-toggle="collapse"
-                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="btn btn-link btn-block text-center grn-txt" type="button"
+                                data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                aria-controls="collapseOne">
                                 {{ user.username }}
                             </button>
                         </h2>
@@ -27,15 +28,43 @@
                     <div id="collapseOne" class="collapse show text-center" aria-labelledby="headingOne"
                         data-parent="#accordionExample">
                         <div class="card-body text-center">
-                            <!-- Add Is Admin toggle -->
-                            <a href="{{ url_for('delete_user', user_id=user._id) }}" class="btn button">Delete <i class="fas fa-dumpster"></i>
-                            </a>
-                            <br><br>
-                            <small class="text-uppercase">Once a User is deleted, their account and/or content cannot be restored.</small>
+                            <!-- Button triggers Delete confirmation modal -->
+                            <button type="button" class="btn button" data-toggle="modal" data-target="#deleteModal">
+                                Delete <i class="fas fa-dumpster"></i>
+                            </button>
                         </div>
                     </div>
-                
-                {% endfor %}
+
+
+                    <!-- Delete Confirmation Modal -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                        aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title grn-txt" id="deleteModalLabel">Are you sure you wish to
+                                        delete this?</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Once deleted, this user cannot be restored. By clicking delete you are confirming
+                                    you understand this!
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn button" data-dismiss="modal">
+                                        Cancel <i class="fas fa-window-close">
+                                        </i>
+                                    </button>
+                                    <a href="{{ url_for('delete_user', user._id=user_id ) }}" class="btn button">
+                                        Delete <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

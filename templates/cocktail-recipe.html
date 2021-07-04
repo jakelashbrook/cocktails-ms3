@@ -38,12 +38,11 @@
                                 id="edit-ct-btn">Edit <i class="fas fa-edit"></i></a>
                             <!-- Delete Cocktail -->
                             <!-- Functionality for users to be added later, only admin may currently delete-->
-                            <button class="btn button mb-2 d-none" id="del-ct-btn">Delete <i class="fas fa-dumpster"></i></button>
-                            <p class="d-none" id="r-u-sure">Are you sure you wish to delete this recipe?</p>
-                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn button d-none"
-                                id="y-del">Yes</a>
-                            <a class="btn button d-none" id="n-del" function="dnone()">No</a>
-                            {% endif %}
+                        <!-- Pressing Delete Button triggers confirmation modal -->
+                        <button type="button" class="btn button mb-2" data-toggle="modal" data-target="#deleteModal">
+                        Delete <i class="fas fa-trash-alt"></i>
+                        </button>
+                {% endif %}
             {% if session.user|lower %}
             <!-- Love Recipe -->
             <form action="{{ url_for('add_love') }}" method="POST" id="love-form">
@@ -102,4 +101,30 @@
 </div>
 </div>
 </div>
+
+<!-- Modal for delete confirmation  -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title grn-txt" id="deleteModalLabel">Are you sure you wish to delete this?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Once deleted, this recipe cannot be restored. By clicking delete you are confirming you understand this!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn button" data-dismiss="modal">
+              Cancel <i class="fas fa-window-close">
+            </i>
+            </button>
+          <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn button">
+              Delete <i class="fas fa-trash-alt"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

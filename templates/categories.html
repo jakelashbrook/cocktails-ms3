@@ -1,27 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 <!-- Add a new category -->
-    <div class="container">
-        <div class="ghost-wht container mt-3">
-            <div class="container mt-3">
-                <hr>
-                <h3 class="mt-3 text-center text-uppercase">Add New Category</h3>
-                <hr>
-            </div>
-            <form class="container pt-3 pb-3" method="POST" action="{{ url_for('add_category') }}">
-                <div class="row">
-                    <div class="col-10">
-                        <input type="text" name="category_name" id="category_name" class="form-control"
-                            placeholder="Category Name:">
-                    </div>
-                    <div class="col-2">
-                        <button type="submit" value="Submit" class="btn button">Add <i
-                                class="fas fa-plus-square"></i></button>
-                    </div>
+<div class="container">
+    <div class="ghost-wht container mt-3">
+        <div class="container mt-3 p-2">
+            <hr>
+            <h3 class="mt-3 text-center text-uppercase">Add New Category</h3>
+            <hr>
+        </div>
+        <form class="container pt-3 pb-3" method="POST" action="{{ url_for('add_category') }}">
+            <div class="row">
+                <div class="col-10">
+                    <input type="text" name="category_name" id="category_name" class="form-control"
+                        placeholder="Category Name:">
                 </div>
-            </form>
-        </div>
-        </div>
+                <div class="col-2">
+                    <button type="submit" value="Submit" class="btn button">Add <i
+                            class="fas fa-plus-square"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 <!-- Manage Categories -->
 
 <div class="container mt-3">
@@ -46,46 +46,73 @@
                     </h2>
                 </div>
 
-                <div id="collapseOne" class="collapse show card" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div id="collapseOne" class="collapse show card" aria-labelledby="headingOne"
+                    data-parent="#accordionExample">
                     <div class="card-body p-3">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 text-center">
-                        <button class="btn button edit-cat-dd">Edit <i class="fas fa-edit"></i></button>
-                        <!-- If Edit Clicked SHOW THIS -->
-                        <div class="container ghost-wht mb-3 col-12">
-                            <form class="container d-none edit-cat-area"  method="POST" 
-                            action="{{ url_for('edit_category', category_id=category._id) }}">
-                                <div class="row p-3">
-                                    <div class="col-8">
-                                        <input type="text" name="category_name" id="category_name" class="form-control"
-                                            value="{{ category.category_name }}">
-                                    </div>
-                                    <div class="col-4">
-                                        <button type="submit" value="Submit" class="btn button mb-2">Update 
-                                            <i class="fas fa-check-circle"></i></button>
-                                        <a class="btn button canx-cat-edit">Cancel  
-                                            <i class="fas fa-window-close"></i></a>
-                                    </div>
+                                <button class="btn button edit-cat-dd">Edit <i class="fas fa-edit"></i></button>
+                                <!-- If Edit Clicked SHOW THIS -->
+                                <div class="container ghost-wht mb-3 col-12">
+                                    <form class="container d-none edit-cat-area" method="POST"
+                                        action="{{ url_for('edit_category', category_id=category._id) }}">
+                                        <div class="row p-3">
+                                            <div class="col-8">
+                                                <input type="text" name="category_name" id="category_name"
+                                                    class="form-control" value="{{ category.category_name }}">
+                                            </div>
+                                            <div class="col-4">
+                                                <button type="submit" value="Submit" class="btn button mb-2">Update
+                                                    <i class="fas fa-check-circle"></i></button>
+                                                <a class="btn button canx-cat-edit">Cancel
+                                                    <i class="fas fa-window-close"></i></a>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                                </form>
+                            </div>
+                            <div class="col-sm-12 col-md-6 text-center">
+                                <!-- Button triggers delete confirmation modal -->
+                                <button type="button" class="btn button" data-toggle="modal"
+                                    data-target="#deleteModal">
+                                    Delete <i class="fas fa-trash-alt"></i>
+                                </button>
+
+                            </div>
                         </div>
-                        </div>
-                        <!-- ADD R U SURE U WISH TO DELETE FUNC. -->
-                        <div class="col-sm-12 col-md-6 text-center">
-                        <button class="btn button r-u-sure">Delete <i
-                                class="fas fa-dumpster"></i></button>
-                        <div class="container ghost-wht text-center d-none col-12 delete-area mt-3">
-                            <p class="text-center ">Are you sure you wish to delete this?</p>
-                            <a class="btn button mb-2" 
-                            href="{{ url_for('delete_category', category_id=category._id) }}">Yes</a>
-                            <button class="btn button mb-2 no-del-btn">No</button>
-                    </div>
                     </div>
                 </div>
+
+                <!-- Modal for delete confirmation  -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title grn-txt" id="deleteModalLabel">Are you sure you wish to delete
+                                    this?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Once deleted, this category cannot be restored. By clicking delete you are confirming
+                                you understand this!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn button" data-dismiss="modal">
+                                    Cancel <i class="fas fa-window-close">
+                                    </i>
+                                </button>
+                                <a href="{{ url_for('delete_category', category_id=category._id) }}" class="btn button">
+                                    Delete <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
                 {% endfor %}
-                </div>
-                </div>
-                </div>
-{% endblock %}
+            </div>
+        </div>
+    </div>
+    {% endblock %}

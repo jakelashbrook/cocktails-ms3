@@ -44,15 +44,18 @@
                         </button>
                 {% endif %}
             {% if session.user|lower %}
+            
             <!-- Love Recipe -->
             <form action="{{ url_for('add_love') }}" method="POST" id="love-form">
                 <input type="text" class="d-none" value="{{ session.user }}" name="loved_by" id="loved_by">
                 <input type="text" class="d-none" value="{{ recipe.recipe_name }}" name="recipe_name" id="recipe_name">
             </form>
+            {% if session.user|lower == loved.loved_by %}
             <button type="submit" class="btn button" form="love-form" value="submit" data-bs-toggle="tooltip"
                 data-bs-placement="top" title="Show some love">
                 <i class="fas fa-heart"></i>
             </button>
+            {% endif %}
             </div>
             </div>
             </div>
@@ -65,7 +68,11 @@
             <div class="col-12 mt-3">
                 <!-- Recipe Ingredients -->
                 <h5 class="grn-txt">Ingredients:</h5>
-                <p>{{ recipe.ingredients }}</p>
+                <p>
+                    {% for ingredient in recipe['ingredients'] %}
+                       <p>{{ ingredient }}</p>
+                    {% endfor %}
+                </p>
             </div>
             <div class="col-12 mt-3">
                 <!-- Method, Step 1 -->

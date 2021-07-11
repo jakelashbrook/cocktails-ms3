@@ -292,14 +292,11 @@ def add_love():
             "loved_by": request.form.get("loved_by"),
             "recipe_name": request.form.get("recipe_name")
         }
-        if loved:
-            flash("You have already loved this recipe")
-            return redirect(url_for("get_cocktails"))
-    else:
         mongo.db.loved.insert_one(loved)
         flash("Thanks for sharing the love")
         return redirect(url_for("get_cocktails"))
     return render_template("cocktail-recipe.html", loved=loved)
+
 
 @app.route("/get_promotions")
 def get_promotions():

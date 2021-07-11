@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container ghost-wht card">
+    <div class="container ghost-wht card mt-3">
         <div class="container">
             <hr>
             <h3 class="mt-3 text-center text-uppercase">Edit Cocktail Recipe</h3>
@@ -54,7 +54,9 @@
                     <textarea type="text" class="form-control" name="ingredients" id="ingredients" required>
                         {{- recipe.ingredients -}}
                     </textarea>
-                    <small class="text-uppercase dp-txt">Please write each ingredient on a new line</small>
+                    <small class="text-uppercase dp-txt">
+                        Please use a comma between each ingredient and end with a full stop.
+                    </small>
                 </div>
             </div>
             <div class="row pt-2">

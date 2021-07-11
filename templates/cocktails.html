@@ -3,7 +3,7 @@
 
 {% if recipes|length > 0 %}
 
-<div class="container d-md-block">
+<div class="container">
     <div class="row ghost-wht mt-3">
         <div class="container">
             <hr>
@@ -13,26 +13,24 @@
         <div class="container text-center">
             <ul id="tail-cat-btns" style="list-style-type: none;">
                 <div class="row mb-2">
-                    <div class="col-4">
+                    <div class="col-4 col-md-2 mb-2">
                         <li><a href="{{ url_for('cocktails', category='All') }}" class="btn button">All</a></li>
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 col-md-2 mb-2">
                         <li><a href="{{ url_for('cocktails', category='Mocktails') }}" class="btn button">Mocktails</a></li>
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 col-md-2 mb-2">
                         <li><a href="{{ url_for('cocktails', category='Fruity') }}" class="btn button">Fruity</a></li>
                     </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-4">
+                    <div class="col-4 col-md-2 mb-2">
                         <li><a href="{{ url_for('cocktails', category='Sour') }}" class="btn button">Sour</a></li>
                     </div>
                 
-                <div class="col-4">
+                <div class="col-4 col-md-2 mb-2">
                     <li><a href="{{ url_for('cocktails', category='Dessert') }}" class="btn button">Dessert</a></li>
                 </div>
             
-                <div class="col-4">
+                <div class="col-4 col-md-2 mb-2">
                     <li><a href="{{ url_for('cocktails', category='Sparkling') }}" class="btn button">Fizz</a></li>
                 </div>
                 
@@ -48,7 +46,7 @@
                 <div class="card-img-overlay text-center">
                     <div class="card-body">
                         <!-- Print recipe name from database -->
-                        <h4 class="card-title font-weight-bold grn-bg">{{ recipe.recipe_name }}</h4>
+                        <h4 class="card-title font-weight-bold grn-bg ghost-wht-txt">{{ recipe.recipe_name }}</h4>
                     </div>
                     <!-- Print recipe summary from database -->
                     <div style="position: absolute; bottom: 15px; left:33%;">
@@ -67,7 +65,7 @@
         <h3 class="mt-3 text-center text-uppercase">No Cocktails Found</h3>
         <hr>
     </div>
-    <p>Do you have a cocktail that would be perfect for this category? If so, why not <a
+    <p class="mt-3">Do you have a cocktail that would be perfect for this category? If so, why not <a
             href="{{ url_for('add_cocktail') }}">add it now?</a></p>
     <p>Don't have an account yet? <a href="{{ url_for('register') }}">Sign up now!</a></p>
     <a href="{{ url_for('get_cocktails') }}" class="btn button m-3">Go Back to Cocktails</a>

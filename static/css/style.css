@@ -109,6 +109,10 @@ h3 {
     color: #210124;
 }
 
+.gb {
+    border: #009688 1px solid;
+}
+
 
 /* Buttons and Links */
 .button {

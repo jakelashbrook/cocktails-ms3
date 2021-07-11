@@ -3,7 +3,7 @@
 
 {% if recipes|length > 0 %}
 
-<div class="container d-none d-md-block">
+<div class="container d-md-block">
     <div class="row ghost-wht mt-3">
         <div class="container">
             <hr>
@@ -11,13 +11,32 @@
             <hr>
         </div>
         <div class="container text-center">
-            <ul id="tail-cat-btns">
-                <li><a href="{{ url_for('cocktails', category='All') }}" class="btn button">All Cocktails</a></li>
-                <li><a href="{{ url_for('cocktails', category='Mocktails') }}" class="btn button">Mocktails</a></li>
-                <li><a href="{{ url_for('cocktails', category='Fruity') }}" class="btn button">Fruity</a></li>
-                <li><a href="{{ url_for('cocktails', category='Sour') }}" class="btn button">Sour</a></li>
-                <li><a href="{{ url_for('cocktails', category='Dessert') }}" class="btn button">Dessert</a></li>
-                <li><a href="{{ url_for('cocktails', category='Sparkling') }}" class="btn button">Sparkling</a></li>
+            <ul id="tail-cat-btns" style="list-style-type: none;">
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <li><a href="{{ url_for('cocktails', category='All') }}" class="btn button">All</a></li>
+                    </div>
+                    <div class="col-4">
+                        <li><a href="{{ url_for('cocktails', category='Mocktails') }}" class="btn button">Mocktails</a></li>
+                    </div>
+                    <div class="col-4">
+                        <li><a href="{{ url_for('cocktails', category='Fruity') }}" class="btn button">Fruity</a></li>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <li><a href="{{ url_for('cocktails', category='Sour') }}" class="btn button">Sour</a></li>
+                    </div>
+                
+                <div class="col-4">
+                    <li><a href="{{ url_for('cocktails', category='Dessert') }}" class="btn button">Dessert</a></li>
+                </div>
+            
+                <div class="col-4">
+                    <li><a href="{{ url_for('cocktails', category='Sparkling') }}" class="btn button">Fizz</a></li>
+                </div>
+                
+                </div>
             </ul>
         </div>
         <!-- Iterate through recipes -->

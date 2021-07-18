@@ -13,23 +13,7 @@
                 style="width: 600px; height: 600px;">
         </div>
         <div class="col-sm-12 col-lg-6 mt-3">
-            <div class="col-sm-12 col-md-6 mt-3">
-                <!-- Recipe Prep Time-->
-                <h5 class="grn-txt">Prep Time:</h5> <span>{{ recipe.prep_time }}</span>
-            </div>
-            <div class="col-sm-12 col-md-6 mt-3">
-                <!-- Original Author -->
-                <h5 class="grn-txt">Original Author:</h5> <span>{{ recipe.author }}</span>
-            </div>
-            <div class="col-sm-12 col-md-6 mt-3">
-                <!-- User who created the recipe post -->
-                <h5 class="grn-txt">Created by:</h5> <span>{{ recipe.created_by }}</span>
-            </div>
-            <div class="col-sm-12 col-md-6 mt-3">
-                <!-- Garnish for cocktail -->
-                <h5 class="grn-txt">To Garnish:</h5> <span>{{ recipe.garnish }}</span>
-            </div>
-            <div class="col-sm-12 col-md-6 mt-3">
+            <div class="container mt-3 mb-3">
                 {% if session.user|lower == recipe.created_by %}
                     <div class="row">
                         <!-- Edit the recipe -->
@@ -43,29 +27,32 @@
                         Delete <i class="fas fa-trash-alt"></i>
                         </button>
                 {% endif %}
-            {% if session.user|lower %}
-            
-            <!-- Love Recipe -->
-            <form action="{{ url_for('add_love') }}" method="POST" id="love-form">
-                <input type="text" class="d-none" value="{{ session.user }}" name="loved_by" id="loved_by">
-                <input type="text" class="d-none" value="{{ recipe.recipe_name }}" name="recipe_name" id="recipe_name">
-            </form>
-            {% if session.user|lower == loved.loved_by %}
-            <button type="submit" class="btn button" form="love-form" value="submit" data-bs-toggle="tooltip"
-                data-bs-placement="top" title="Show some love">
-                <i class="fas fa-heart"></i>
-            </button>
-            {% endif %}
             </div>
             </div>
             </div>
             {% endif %}
-            <div class="col-12 mt-3">
+            <div class="container">
+                <!-- Recipe Prep Time-->
+                <h5 class="grn-txt">Prep Time:</h5> <span>{{ recipe.prep_time }}</span>
+            </div>
+            <div class="container">
+                <!-- Original Author -->
+                <h5 class="grn-txt">Original Author:</h5> <span>{{ recipe.author }}</span>
+            </div>
+            <div class="container">
+                <!-- User who created the recipe post -->
+                <h5 class="grn-txt">Created by:</h5> <span>{{ recipe.created_by }}</span>
+            </div>
+            <div class="container">
+                <!-- Garnish for cocktail -->
+                <h5 class="grn-txt">To Garnish:</h5> <span>{{ recipe.garnish }}</span>
+            </div>
+            <div class="container">
                 <!-- Recipe Summary -->
                 <h5 class="grn-txt">Summary:</h5>
                 <p>{{ recipe.summary }}</p>
             </div>
-            <div class="col-12 mt-3">
+            <div class="container">
                 <!-- Recipe Ingredients -->
                 <h5 class="grn-txt">Ingredients:</h5>
                 <p>
@@ -74,33 +61,25 @@
                     {% endfor %}
                 </p>
             </div>
-            <div class="col-12 mt-3">
+            <div class="container">
                 <!-- Method, Step 1 -->
                 <h5 class="grn-txt">Step One:</h5>
                 <p>{{ recipe.method_step_one }}</p>
             </div>
-            <div class="col-12 mt-3">
+            <div class="container">
                 <!-- Method, Step 2 -->
                 <h5 class="grn-txt">Step Two:</h5>
                 <p>{{ recipe.method_step_two }}</p>
             </div>
-            <div class="col-12 mt-3">
+            <div class="container">
                 <!-- Food that goes well with cocktail -->
                 <h5 class="grn-txt">Drink with:</h5>
                 <p>{{ recipe.eat_with }}</p>
             </div>
-            <div class="col-12 mt-3">
+            <div class="container">
                 <!-- Inspiration/Tips -->
                 <h5 class="grn-txt">Inspiration:</h5>
                 <p>{{ recipe.inspiration }}</p>
-            </div>
-            <div class="col-12">
-                <h5 class="mt-3 mb-3 grn-txt">Users who loved this</h5>
-                {% if loved.recipe_name == loved.loved_by %}
-                    {% for love in loved %}
-                        <p>{{ love.loved_by|e }}</p>
-                    {% endfor %}
-                {% endif %}
             </div>
         </div>
     </div>

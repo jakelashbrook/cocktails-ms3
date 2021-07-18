@@ -63,7 +63,7 @@
             {% endfor %}
         </div>
     </div>
-
+    <br><br>
     <!-- SHOP NOW -->
     <div class="container ghost-wht">
         <div class="row ghost-wht">
@@ -230,6 +230,44 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="container ghost-wht mt-3 mb-3">
+            <!-- Love Cocktails -->
+            <div class="container">
+            <h3 class="text-center text-uppercase pt-3">Show us some Love!</h3>
+            <hr>
+            </div>
+            <p class="text-center yomogi font-weight-bold">
+                If you don't have an account already sign up to show some love for What's your tail? Otherwise sign in now.
+            </p>
+            {% if session.user|lower %}
+            <form action="{{ url_for('add_love') }}" method="POST" id="love-form">
+                <input type="text" class="d-none" value="{{ session.user }}" name="loved_by" id="loved_by">
+            </form>
+            {% endif %}
+            {% if session.user|lower == loved.loved_by %}
+            <button type="submit" class="btn button" form="love-form" value="submit" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="Show some love">
+                <i class="fas fa-heart"></i>
+            </button>
+            {% endif %}
+            
+                {% if session.user|lower %}
+                <div class="container text-center">
+                    <button class="btn button mb-3" type="button" data-toggle="collapse" data-target="#collapseLove" aria-expanded="false" aria-controls="collapseLove">
+                        Users Who Love Our Cocktails!
+                      </button>
+                      <div class="collapse pb-3" id="collapseLove">
+                    {% for love in loved %}
+                    <div class="card card-body mb-3">
+                            {{ love.loved_by|e }}
+                        </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

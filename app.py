@@ -25,9 +25,11 @@ def get_recipes():
     recipes = list(mongo.db.recipes.find())
     # recipes to be shown on mobile devices
     mobile_recipes = [recipes[0], recipes[1], recipes[2]]
+    # Find users who love recipe
+    loved = mongo.db.loved.find().sort("loved_by", 1)
 
     return render_template(
-        "home.html", recipes=recipes, mobile_recipes=mobile_recipes)
+        "home.html", recipes=recipes, mobile_recipes=mobile_recipes, loved=loved)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -275,8 +277,6 @@ def delete_user(user_id):
 def recipe(recipe_id):
     # Find specific recipe in db
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    # Find users who love recipe
-    loved = mongo.db.loved.find().sort("loved_by", 1)
 
     if not recipe:
         flash("Recipe does not exist")
@@ -288,14 +288,13 @@ def recipe(recipe_id):
 @app.route("/add_love", methods=["GET", "POST"])
 def add_love():
     if request.method == "POST":
-        loved = {
+        lover = {
             "loved_by": request.form.get("loved_by"),
-            "recipe_name": request.form.get("recipe_name")
         }
-        mongo.db.loved.insert_one(loved)
+        mongo.db.loved.insert_one(lover)
         flash("Thanks for sharing the love")
-        return redirect(url_for("get_cocktails"))
-    return render_template("cocktail-recipe.html", loved=loved)
+        return redirect(url_for("get_recipes"))
+    return render_template("home.html", loved=loved, lover=lover)
 
 
 @app.route("/get_promotions")

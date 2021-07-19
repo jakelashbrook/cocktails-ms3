@@ -159,3 +159,33 @@ h3 {
     display: inline-block;
 }
 
+/* Back to the top button */
+#back-to-top-btn {
+    position:fixed;
+      bottom:75px;
+      right:20px;
+    border: 1px solid #009688;
+      text-align:center;
+      box-shadow: 2px 2px 3px #F5F3F7;
+  }
+  
+  #back-to-top-btn:hover {
+    border: 1px solid #009688;
+    box-shadow: 2px 2px 3px #F5F3F7;
+  }
+
+  /* Bottom scroll button */
+#bottom-btn {
+    position:fixed;
+      bottom:25px;
+      right:20px;
+    border: 1px solid #009688;
+      text-align:center;
+      box-shadow: 2px 2px 3px #F5F3F7;
+  }
+  
+  #bottom-btn:hover {
+    border: 1px solid #009688;
+    box-shadow: 2px 2px 3px #F5F3F7;
+  }
+

@@ -46,7 +46,7 @@
             </div>
         </div>
         <!-- Site Navigation (Bootstrap Materialize Component) -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light card yomogi font-weight-bold">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light card yomogi font-weight-bold" id="nav">
             <a class="navbar-brand tourney text-uppercase montserrat font-weight-bold" 
             href="{{ url_for('get_recipes') }}">What's your Tail?</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -138,7 +138,7 @@
 
     <!-- Footer Selection -->
     <div class="container mt-3 mb-0 text-center" style="position: sticky;">
-        <footer class="container ghost-wht card">
+        <footer class="container ghost-wht card" id="footer">
             <div class="row pt-3">
                 <!-- Sign Up for Promotions -->
                 <div class="col-sm-12 col-lg-6">
@@ -191,6 +191,11 @@
         </div>
     </div>
 
+  <!--       The Back to the Top button, reused from previous milestone    -->
+  <a href="#content-body" onclick="topFunction()" id="back-to-top-btn" class="btn button" style="display:none"><i class="fas fa-arrow-up"></i></a>
+    <!-- Scroll to bottom -->
+    <a href="#footer" onclick="bottomFunction()" id="bottom-btn" class="btn button" style="display:none"><i class="fas fa-arrow-down"></i></a>
+
    
                     <!-- Compiled and minified JavaScript from Bootstrap -->
                     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -206,6 +211,8 @@
                     <script src="{{ url_for('static', filename='js/main.js')}}"></script>
                     <!-- Light/Dark Mode JS -->
                     <script src="{{ url_for('static', filename='js/light-dark.js')}}"></script>
+                    <!-- Up/Down Button JS -->
+                    <script src="{{ url_for('static', filename='js/up-down.js') }}"></script>
                     <!-- For injecting custom JS -->
                     {% block scripts %}
                     {% endblock %}

@@ -100,7 +100,7 @@ worth noting that the backgrounds for Light/Dark mode will be image based as men
 
 ## Wireframes 
 
-You can see the original Wireframes [here](), I decided to make a dedicated PDF so as not to overfill
+You can see the original Wireframes [here](/docs/wyt-wireframes.pdf), I decided to make a dedicated PDF so as not to overfill
 this document. Obviously since originally designing them the site has evolved and changed out of 
 necessity due to knowledge of implementation and time scales available to work with. The main differences
 are:

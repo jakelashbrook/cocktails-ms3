@@ -105,7 +105,132 @@ this document. Obviously since originally designing them the site has evolved an
 necessity due to knowledge of implementation and time scales available to work with. The main differences
 are:
 
-## Information Architecture  
+**base.html**:
+    - Login/ Logout/ Register is not contained within the main navigation. To make it standout and be easily accessible
+    they are contained within buttons floating above the main navigation.
+    - Copyright is not within a footer column, instead it sites underneath it within a single line.
+
+**home.html**:
+    - The only difference from the wireframe design is that there is not a jump to cocktails button within the section and 
+    the card design is full image with a text and button overlay. Because every card has a CTA to specific Cocktails, I decided that another one was not needed given the ease of navigation already within the site.
+
+**cocktails.html**:
+    - Unlike the wireframe, I decided to hold off adding Pagination to the Cocktails until a later release. There were a 
+    variety of reasons for this decision. Firstly, I didn't think there were enough Cocktails uploaded to the site yet to justify adding Pagination. Secondly, because all of the content is relatable, I deemed a little scrolling with the aid
+    of top/bottom buttons to be more than justifiable/acceptable. The third factor was the amount of time I was left with to complete the first release of this project. Due to current neurological issues, I wanted to finish the first release without adding too much extra stress/pressure within the timeframe left.
+    - In the wireframe, I had originally planned to add a dropdown menu to select a cocktail category. Instead I opted for
+    Category Buttons to show the user all cocktails from specific categories. There wasn't any huge factor in this decision, I simply preferred the way it blended with the pre-existing design at that point in development. I may change this later should it no longer continue to suit the functionality of the site as it evolves and content grows.
+
+
+**cocktail-recipe.html**:
+    - The wireframe is almost the same, other than the fact that I decided to have a squared image with the image in one column and all of the text in another.  
+
+
+**profile.html**:
+    - I decided to scrap the profile image and bio for a number of reasons. Firstly, only the logged in user can see
+    see the profile- so it didn't seem like there was any reason to have this. Secondly, the site is not a social media platform- the only posts within the site are Cocktail Recipes.
+    - I didn't implement a Like System for individual recipes. I decided it would be too time consuming for now, and instead
+    decided to allow users to show their love for the app. I plan to implement a like system for individual recipes within a future release.
+    - The users recipes are displayed as cards like the rest of the app.
+    - The Liked Recipes area will be installed on a future release when the system is implemented.
+
+
+**add-cocktail.html/edit-cocktail.html**:
+    - The original plans for these form based pages are exactly the same as the wireframes.
+
+
+**user-recipes.html**:
+    - The concept for this page is mostly the same, however instead of using cards, I used the 
+    Bootstrap Collapse component to allow the user to click on recipe names to access the chosen recipe 
+    and then View, Edit or Delete them.  
+    
+
+**Categories.html**:
+    - The Manage Categories Page has a Bootstrap Dropdown Component as it's base as planned- You can
+    click the Category name and then Buttons will appear giving the admin the option to Edit or Delete 
+    the chosen category.
+    - The only difference to the wireframe is that I added a box above the Manage Categories area to quickly 
+    add new categories.
+
+All of the wireframes are the same as the original wireframes but using a single column from the Bootstrap 
+Grid.
+
+## Extra Installations Since Wireframes  
+
+**promotions.html**:  
+    - A place the admin can view all of the email addresses that have signed up for promotional news.
+
+    INSERT SCREENSHOT
+
+**users.html**:
+    - A place the admin can view the app users, and remove any users that don't adhere to the websites
+    standards.
+
+    INSERT SCREENSHOT
+
+**error 404**:
+    - I have decided I will add an error page. I will make this fit with the design of the pre-existing site and 
+    offer users a link back to the homepage when they land there.  
+
+    INSERT SCREENSHOT
+
+## Information Architecture   
+
+The What's Your Tail Database has 5 Collections in the database, some of these Collections have identical keys. To show
+within the tables which keys are identical I will label them with *Italic*. Take a look at the database tables
+below:  
+  
+**Recipes Collection**
+
+|Key | Value | Type|
+|--- | --- | ---|
+|*_id* | Unassigned | ObjectId|
+|*category_name* | Unassigned | String|
+|recipe_name | Unassigned | String|
+|prep_time | Unassigned | String|
+|img_url | Unassigned | String|
+|ingredients | Unassigned | Array|
+|garnish | Unassigned | String|
+|method_step_one | Unassigned | String|
+|method_step_two | Unassigned | String|
+|inspiration | Unassigned | String|
+|method_step_one | Unassigned | String|
+|eat_with | Unassigned | String|
+|author | Unassigned | String|
+|created_by | Unassigned | String|`
+
+**Categories Collection**  
+
+|Key | Value | Type|
+|--- | --- | ---|
+|*_id* | Unassigned | ObjectId|
+|*category_name* | Unassigned | String|
+
+**Loved Collection**  
+
+|Key | Value | Type|
+|--- | --- | ---|
+|*_id* | Unassigned | ObjectId|  
+|loved_by | Unassigned | String|
+
+**Promotions Collection**  
+
+|Key | Value | Type|
+|--- | --- | ---|
+|*_id* | Unassigned | ObjectId|
+|email_address | Unassigned | String|  
+
+**Users Collection**  
+
+|Key | Value | Type|
+|--- | --- | ---|
+|*_id* | Unassigned | ObjectId|
+|username | Unassigned | String|
+|password | Unassigned | String|
+|is_admin | False | Boolean|  
+
+As you can see- all of the collections have an _id, This acts as a key for accessing specifc data. The Recipes and Categories
+Collections both have the *category_name* key.
 
 <h1 id="features" align="center">Site Features</h1>
 
@@ -126,7 +251,7 @@ buttons.
 
 - **Base.html**
     - Navigation
-        - Search Cocktails
+        - Search All Cocktails in Database using keywords.
     - Footer
     - Top/Bottom Buttons
 
@@ -135,14 +260,17 @@ buttons.
     - Sign up for Promotions
     - Shop Now
     - Popular Cocktails
-    - Social Media Links
+    - Social Media Links  
+
 - **Cocktails**
     - All Cocktails
-    - Category Buttons for Cocktails
+    - Category Buttons for Cocktails  
+
 - **Register/Login/Logout**
     - Sign up to app.
     - Login to website with user credentials.
     - Logout of website and return to login page.  
+
 - **My Profile**
     - My Uploaded Cocktails
     - Deativate My Account
@@ -150,12 +278,15 @@ buttons.
 ## Admin Page Features & Functionality
 - **Manage Categories**
     - View, Edit Or Delete existing categories.
-    - Add new category
+    - Add new category  
+
 - **Manage Users**
     - View existing users
-    - Remove users
+    - Remove users  
+
 - **Promotions List**
-    - View email addresses of people who have signed up for promotions.
+    - View email addresses of people who have signed up for promotions.  
+
 - **Manage Cocktail Recipes**
     - View, Edit and Delete existing Cocktails.
 
@@ -164,21 +295,26 @@ buttons.
     - Originally I planned to include this straight away, but after much reading and not having enough Cocktails on the
     App yet for it to seem worthy to invest time in pagination I decided to go with a top/bottom button for the time being
     until there is more Cocktails included within the app. This decision was made due to timings and the fact that all of 
-    the site content is relatable so therefore easy to scroll through. When a user needs a specific recipe, the search function is available and easily accesible using the 'Back to top' button.
+    the site content is relatable so therefore easy to scroll through. When a user needs a specific recipe, the search function is available and easily accesible using the 'Back to top' button.  
+
 - **Upgrade Promotions Feature**
     - Long term, make it so the site automatically responds to the email address users sign up. There could also be 
-    more useful expansions to be added at a later date should they become relevant to the sites requirements.
+    more useful expansions to be added at a later date should they become relevant to the sites requirements.  
+
 - **Add change username option**
     - I think this would be a cool feature to have, as I often find myself wishing I could change my username 
-    after making one.
+    after making one.  
+
 - **Add ability to change password**
     - For security purposes, being able to change your password as often as needed is something that I think 
     should become a priority for a future release. Obviously at the moment, the site doesn't hold any sensitive
-    data- but this could change as the site grows.
+    data- but this could change as the site grows.  
+
 - **Upgrade the love/like system to individual recipes**
     - Originally I aimed to incorporate a like system for individual recipes, but due to the amount of 
     time I was left to work with I decided to compromise and have a love button for the website in general
-    and then expand on it within a later release.
+    and then expand on it within a later release.  
+
 - **Upgrade the Bottom button to vanish when close to footer**
     - This is something I need to look more into at a later date. I'm currently unsure of how to make this happen
     but will only need to take the concept further if pagination is not added into the second release as i believe
@@ -202,6 +338,7 @@ buttons.
 - [MongoDB](https://account.mongodb.com/)
 - [Heroku](https://id.heroku.com/login)
 - [Werkzeug](https://werkzeug.palletsprojects.com/)
+- [Google Fonts](https://fonts.google.com/)
 
 ## Testing Tools & Utilities  
 - [W3C HTML Validator](https://validator.w3.org/)
@@ -213,6 +350,23 @@ buttons.
 <h1 id="testing" align="center">Testing</h1>  
 
 ## Validation Results  
+
+Here are a list of the validation results:
+- **HTML**:
+    - [Error/Warning Logs](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fwhats-your-tail.herokuapp.com%2F)
+        - Bad value submit for attribute type on element a: Subtype missing.
+            - Easy fix, type=submit removed from anchor element.
+        - Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections.
+            - This Section is used to display Flash Messages, as a quick fix I will change the element from a Section
+            tag to a Div.
+        - Duplicate ID warnings are irrelevant because they're only repeated by Jinja Templating and are not actively
+        repeated within the written HTML code.
+        - Stray End Div Tags removed.
+        - Closing Footer Tag exists and functions.
+    
+    All HTML fixes acted upon should display after the 'HTML Validation Fixes' commit.
+- [CSS]()
+- [JShint]()
 
 ## Testing the App
 

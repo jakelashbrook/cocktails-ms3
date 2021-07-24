@@ -104,14 +104,14 @@
                         placeholder="Search Cocktails" aria-label="Search Cocktails" minlength="3" required>
                     <button class="btn button border my-2 my-sm-0" type="submit">Search <i
                             class="fas fa-search"></i></button>
-                    <a href="{{ url_for('get_cocktails') }}" class="btn button border my-2 my-sm-0" type="submit">Reset
+                    <a href="{{ url_for('get_cocktails') }}" class="btn button border my-2 my-sm-0">Reset
                         <i class="fas fa-undo"></i></a>
                 </form>
             </div>
         </nav>
     </div>
 
-    <section class="container">
+    <div class="container">
         <!-- Flash Messages to be displayed here -->
         {% with messages = get_flashed_messages() %}
         <!-- If there are messages-->
@@ -129,7 +129,7 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
-    </section>
+    </div>
 
     <main class="container">
         {% block content %}
@@ -183,13 +183,11 @@
                     </div>
                 </div>
             </div>
-            </div>
         </footer>
         <!-- Copyright Info -->
         <div class="container mt-3">
             <p class="text-center grn-txt">Copyright 2021 - What's your tail? &copy;</p>
         </div>
-    </div>
 
   <!--       The Back to the Top button, reused from previous milestone    -->
   <a href="#content-body" onclick="topFunction()" id="back-to-top-btn" class="btn button" style="display:none"><i class="fas fa-arrow-up"></i></a>

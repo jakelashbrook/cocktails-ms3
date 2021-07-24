@@ -352,7 +352,7 @@ buttons.
 ## Validation Results  
 
 Here are a list of the validation results:
-- **HTML**:
+- **HTML Fixes**:
     - [Error/Warning Logs](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fwhats-your-tail.herokuapp.com%2F)
         - Bad value submit for attribute type on element a: Subtype missing.
             - Easy fix, type=submit removed from anchor element.
@@ -364,8 +364,13 @@ Here are a list of the validation results:
         - Stray End Div Tags removed.
         - Closing Footer Tag exists and functions.
     
-    All HTML fixes acted upon should display after the 'HTML Validation Fixes' commit.
-- [CSS]()
+    All HTML fixes acted upon should display after the 'HTML Validation Fixes' commit.  
+
+- **CSS Fixes**:  
+    - [Error/Warning Logs](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fwhats-your-tail.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+        - There are no entrys I am concerned about within these logs, the majority is based upon external code or simply
+        created CSS variables that the validator doesn't recognise used for the light/dark mode CSS rules.  
+        
 - [JShint]()
 
 ## Testing the App

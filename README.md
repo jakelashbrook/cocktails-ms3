@@ -160,19 +160,19 @@ Grid.
 **promotions.html**:  
     - A place the admin can view all of the email addresses that have signed up for promotional news.
 
-    INSERT SCREENSHOT
+![Screenshot of Deployed Site](./docs/promotions-wyt.png)
 
 **users.html**:
     - A place the admin can view the app users, and remove any users that don't adhere to the websites
     standards.
 
-    INSERT SCREENSHOT
+![Screenshot of Deployed Site](./docs/users-wyt.png)
 
 **error 404**:
     - I have decided I will add an error page. I will make this fit with the design of the pre-existing site and 
     offer users a link back to the homepage when they land there.  
 
-    INSERT SCREENSHOT
+![Screenshot of Deployed Site](./docs/error-wyt.png)
 
 ## Information Architecture   
 

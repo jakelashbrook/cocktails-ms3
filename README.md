@@ -1,6 +1,6 @@
 <h1 align="center" id="your-tail">What's your tail?</h1>
 
-[Insert website screenshot here ]
+![Screenshot of Deployed Site](./docs/wyt-screenshot.png)
 
 See the current [Deployed Version](https://whats-your-tail.herokuapp.com/) of the app.
 
@@ -318,7 +318,7 @@ buttons.
 - **Upgrade the Bottom button to vanish when close to footer**
     - This is something I need to look more into at a later date. I'm currently unsure of how to make this happen
     but will only need to take the concept further if pagination is not added into the second release as i believe
-    this would take away the need for the facility.
+    this would take away the need for the facility. 
 
 <h1 id="tech" align="center">Incorporated Technologies</h1>  
 
@@ -346,6 +346,7 @@ buttons.
 - [JShint Javascript Validator](https://jshint.com/)
 - [PEP8 Python Validator](http://pep8online.com/)
 - [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)
+- [Am I Responsive?](http://ami.responsivedesign.is/)
 
 <h1 id="testing" align="center">Testing</h1>  
 
@@ -396,6 +397,8 @@ I used the Google Chrome Dev Tools throughout the design of this site in conjunc
 facility. The site has been built using Bootstrap and it's Grid Facility as a base to make sure that it's functional across
 multiple devices.
 
+Checkout how the app looks across multiple devices [here](http://ami.responsivedesign.is/?url=https%3A%2F%2Fwhats-your-tail.herokuapp.com%2F).
+
 ### Testing User Stories  
 
 #### First Time User Goals:
@@ -425,22 +428,63 @@ multiple devices.
     - Registered Users can modify their recipes by selecting 'My Account', selecting 'My Profile' and 
     then click on the recipe they wish to 'Edit' or 'Delete' and click the relevant button on the recipe page.
 - As a registered user, I want to be able to easily login to and manage my account. 
+    - Above the Navbar, the Login button sits. Just click it, and you're taken to the Login page. To manage your
+    account, just click 'My Account' once logged in.
 - As a registered user, I want to be able to sign out of my account with ease.
-- As a registered user, I want to be able to like other recipes that I have enjoyed or wish to try. 
+    - As a logged in user, The Logout button sits above the navbar where the Login button rests when a user
+    is not signed into an account. Just click it to Logout from the app.
+- As a registered user, I want to be able to like other recipes that I have enjoyed or wish to try.
+    - Due to the amount of time left to implement this site and personal illness, I decided to do a temporary
+    workaround and allow users to 'Show Love' for the website instead of individual recipes. This feature will
+    be upgraded to the original plan in a later fix.
 
 #### Admin Account Goals: 
 - As the admin user, I want to be able to delete any recipes that do not fit with the site theme of Cocktails.
+    - As the admin, simply click on 'My Account' and select 'Manage Recipes'. From this page you can select
+    specific recipes and choose whether to 'View', 'Edit' or 'Delete' them.
 - As the admin user, I want to be able to add new categories of Cocktails.
-- As the admin user, I want to be able to remove any categories that do not serve a purpose. 
+    - As the admin, Select 'My Account' and then select 'Manage Categories'. At the top of the page, you can
+    easily add a new category by simply typing in the chosen name and selecting submit.
+- As the admin user, I want to be able to remove any categories that do not serve a purpose.
+    - As the admin, Select 'My Account' and then select 'Manage Categories'. Select the Category name you wish
+    to remove and then press the 'Delete' button within the modal.
 - As the admin user, I want to be able to remove any accounts that do not adhere to posting the correct content. 
+    - As the admin, Select 'My Account' then select 'Manage Users'. Once on the page, just select the User you wish
+    to remove, press the 'Delete' button and then confirm you wish to delete their account. Done!
 
-### User Experience Survey  
+### User Experience Survey   
+
+As part of my plan to receive ongoing feedback and inspiration for evolving the website, I decided to make a User
+Survey so that I can assess the feedback before each new release and add in any fixes or ideas that are most popular
+or deemed needed by the Users.
+
+I asked the following questions:
+- What is your favourite thing about the app?
+- What would you suggest changing on the app?
+- What would you like to see added to the app?
+- Were there any issues or bugs you found when using the app?
+- Would you use the app again?
+
+I will review the results as part of the planning for the second release. If you wish to see the results, you 
+can [take the survey](https://surveyheart.com/form/60db46779397ef55ba5d2a5e) now.
 
 ### Defensive Design  
 
-### Bugs Solved 
+To make sure that Defensive Design is included, I have used the 'required' attribute on all forms. I have also used
+the CSS 'pattern' attribute on relevant form inputs, the HTML type attribute is used throughout, and I have collectively checked that all buttons are functioning and serve a purpose. 
 
-### Browser Compatibility
+### Bugs Solved  
+
+- I initially found a bug between the way recipes would display slightly differently depending on how they were input. 
+I found that this was down to whether they were input from the backend or the frontend and used a workaround by asking 
+the user to input the ingredients into the form using commas and a full stop at the end fixed this.
+
+- I lost my env.py file at one point due to a Gitpod shutdown, I simply resolved this by reinstalling my Procfile, requirements.txt and rewriting the env.py- everything worked fine again after that. I also pinned my workspace at the
+recommendation of GitPod and have had no issues with this since.
+
+### Browser Compatibility  
+
+The site has been tested within Google Chrome and Microsoft Edge/Internet Explorer and works without any issues.
 
 <h1 id="deploy" align="center">Deployment</h1>
 
@@ -573,3 +617,4 @@ corner of the page.
 - My Code Institute Mentor Antonio Rodriguez, for always being on hand to encourage and motivate me towards finding valid solutions.
 - My partner, for putting up with me when stressed and in study mode.
 - The Code Institute Tutors, for steering me in the right directions to finding solutions for myself when needed.
+- The Code Institute Slack community for encouragement and support.

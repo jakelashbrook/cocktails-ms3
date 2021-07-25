@@ -308,7 +308,7 @@ def add_love():
         mongo.db.loved.insert_one(lover)
         flash("Thanks for sharing the love")
         return redirect(url_for("get_recipes"))
-    return render_template("home.html", loved=loved, lover=lover)
+    return render_template("home.html", lover=lover)
 
 
 @app.route("/get_promotions")
@@ -328,6 +328,13 @@ def add_promotion():
         return redirect(url_for('get_recipes'))
     promotions = mongo.db.promotions.find().sort("email_address", 1)
     return render_template("promotions.html", promotions=promotions)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    """To handle not found page"""
+    return render_template(
+        "error_404.html", title="Error 404"), 404
 
 
 if __name__ == "__main__":

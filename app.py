@@ -323,6 +323,13 @@ def add_promotion():
     return render_template("promotions.html", promotions=promotions)
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    """To handle not found page"""
+    return render_template(
+        "error_404.html", title="Error 404"), 404
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

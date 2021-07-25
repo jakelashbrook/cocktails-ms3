@@ -22,7 +22,7 @@ See the current [Deployed Version](https://whats-your-tail.herokuapp.com/) of th
 
 <h2 align="center">An Introduction</h2> 
 
-We've all had those long days or weeks at work where it get's to 4 o'clock and we're staring at the clock thinking 
+We've all had those long days or weeks at work where it get's to 4 in the afternoon and we're staring at the clock thinking 
 about what beverage we're going to treat ourselves to when we get home. We all know it's naughty, and definitely not 
 good for our bodies if not enjoyed in moderation- but that doesn't stop us from wanting to partake on a journey of creativity 
 and discovery when it comes to enjoying a nice cold beverage after a hard day in the office.
@@ -66,7 +66,6 @@ I am currently enrolled as a student on.
 - As a registered user, I want to be able to like other recipes that I have enjoyed or wish to try. 
 
 #### Admin Account Goals: 
-- As the admin user, I want to be able to delete any recipes that do not fit with the site theme of Cocktails.
 - As the admin user, I want to be able to add new categories of Cocktails.
 - As the admin user, I want to be able to remove any categories that do not serve a purpose. 
 - As the admin user, I want to be able to remove any accounts that do not adhere to posting the correct content. 
@@ -95,7 +94,7 @@ In this project, I will use the Font Awesome Library due to the wide variety of 
 
 ### Images 
 Due to users being able to use images URL's when creating their own recipes, Images will come from a variety of sources in the end. 
-However, I will use the recipe images from [bbcgoodfood.com](https://www.bbcgoodfood.com/) for this project as the majority of cocktail recipes have been sourced from there. Any additional credits will be listed in the credits section. It also 
+However, I will use the recipe images from [bbcgoodfood.com](https://www.bbcgoodfood.com/) for this project as the majority of cocktail recipes have been sourced from there. Any additional credits will be listed in the credits section. It's also 
 worth noting that the backgrounds for Light/Dark mode will be image based as mentioned above.
 
 ## Wireframes 
@@ -147,7 +146,7 @@ are:
 
 **Categories.html**:
     - The Manage Categories Page has a Bootstrap Dropdown Component as it's base as planned- You can
-    click the Category name and then Buttons will appear giving the admin the option to Edit or Delete 
+    click the Category name and then Buttons will appear giving the admin the option to Add or Delete 
     the chosen category.
     - The only difference to the wireframe is that I added a box above the Manage Categories area to quickly 
     add new categories.
@@ -164,7 +163,8 @@ Grid.
 
 **users.html**:
     - A place the admin can view the app users, and remove any users that don't adhere to the websites
-    standards.
+    standards. This area is mostly built but not fully functional yet, I aim to release this in the
+    second or third future release.
 
 ![Screenshot users.html](./docs/users-wyt.png)
 
@@ -230,7 +230,10 @@ below:
 |is_admin | False | Boolean|  
 
 As you can see- all of the collections have an _id, This acts as a key for accessing specifc data. The Recipes and Categories
-Collections both have the *category_name* key.
+Collections both have the *category_name* key.  
+
+The Love Collection has been preset up for the next release and will not actually be used for the current functionality available to users or the admin. The functionality is about 70% built for it, but not fully finished due to not having the
+time available before the first release for initial grading.
 
 <h1 id="features" align="center">Site Features</h1>
 
@@ -245,7 +248,7 @@ buttons.
 - The site provides a light/dark mode for viewing in whichever is preferable to the user.
 - CRUD Functionality
     - Users can Sign Up, Sign In, Logout, Upload Cocktails, Edit their Cocktail Recipes, Read uploaded Cocktails and Delete their Accounts/ Recipes.
-    - The admin can do all of the above, Aswell as Add/Edit/Delete Categories, Remove Users, View Promotions info etc.
+    - The admin can do all of the above, Aswell as Add/Delete Categories, View Sign Up Information for Promotions etc.
 
 ### Page Features & Functionality  
 
@@ -277,18 +280,14 @@ buttons.
 
 ## Admin Page Features & Functionality
 - **Manage Categories**
-    - View, Edit Or Delete existing categories.
-    - Add new category  
-
-- **Manage Users**
-    - View existing users
-    - Remove users  
+    - View and Delete existing categories.
+    - Add new category   
 
 - **Promotions List**
     - View email addresses of people who have signed up for promotions.  
 
 - **Manage Cocktail Recipes**
-    - View, Edit and Delete existing Cocktails.
+    - View and Edit existing Cocktails.
 
 ## Features To Implement Later
 - **Cocktails Pagination**
@@ -313,12 +312,21 @@ buttons.
 - **Upgrade the love/like system to individual recipes**
     - Originally I aimed to incorporate a like system for individual recipes, but due to the amount of 
     time I was left to work with I decided to compromise and have a love button for the website in general
-    and then expand on it within a later release.  
+    and then expand on it within a later release. I expect to release the love button within the second 
+    release of the app- I've laid down a lot of the groundwork but still not to finish coding it so that
+    users can only like the site once and currently don't have enough time available to fully implement this
+    for the first release.
 
 - **Upgrade the Bottom button to vanish when close to footer**
     - This is something I need to look more into at a later date. I'm currently unsure of how to make this happen
     but will only need to take the concept further if pagination is not added into the second release as i believe
     this would take away the need for the facility. 
+
+- **Admin ability to remove users and posts by them**:
+    - I planned to have this as a part of the original release, but currently don't have the knowledge on how
+    to successfully remove other users that are not the session user. I aim to finish this facility in a future 
+    release. You can see a screenshot of how it will look to the admin when completed. I also plan to enable the
+    admin to remove posts by other users.
 
 <h1 id="tech" align="center">Incorporated Technologies</h1>  
 
@@ -441,9 +449,6 @@ Checkout how the app looks across multiple devices [here](http://ami.responsived
     be upgraded to the original plan in a later fix.
 
 #### Admin Account Goals: 
-- As the admin user, I want to be able to delete any recipes that do not fit with the site theme of Cocktails.
-    - As the admin, simply click on 'My Account' and select 'Manage Recipes'. From this page you can select
-    specific recipes and choose whether to 'View', 'Edit' or 'Delete' them.
 - As the admin user, I want to be able to add new categories of Cocktails.
     - As the admin, Select 'My Account' and then select 'Manage Categories'. At the top of the page, you can
     easily add a new category by simply typing in the chosen name and selecting submit.
@@ -451,8 +456,8 @@ Checkout how the app looks across multiple devices [here](http://ami.responsived
     - As the admin, Select 'My Account' and then select 'Manage Categories'. Select the Category name you wish
     to remove and then press the 'Delete' button within the modal.
 - As the admin user, I want to be able to remove any accounts that do not adhere to posting the correct content. 
-    - As the admin, Select 'My Account' then select 'Manage Users'. Once on the page, just select the User you wish
-    to remove, press the 'Delete' button and then confirm you wish to delete their account. Done!
+    - Currently I only have knowledge of how to delete the session users account, but I have built the page ready
+    and aim to have this up and running for a future release.
 
 ### User Experience Survey   
 

@@ -245,22 +245,6 @@ def delete_category(category_id):
     return redirect(url_for('get_categories'))
 
 
-@app.route("/edit_category/<category_id>", methods=["GET", "POST"])
-def edit_category(category_id):
-    if request.method == "POST":
-        change = {
-            "category_name": request.form.get("category_name"),
-        }
-        mongo.db.categories.update({"_id": ObjectId(category_id)}, change)
-        flash("Category name has been successfully updated!")
-        return redirect(url_for('get_categories', username=session["user"]))
-
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template(
-        "categories.html", category=category, categories=categories)
-
-
 @app.route("/get_user_recipes")
 def get_user_recipes():
     recipes = mongo.db.recipes.find().sort("recipe_name", 1)

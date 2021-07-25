@@ -17,21 +17,3 @@ function scrollFunction() {
   } 
   // End of Code
   }
-
-
-/* 
-
-THIS CODE IS COMMENTED OUT AFTER JSHINT VALIDATION, as is the let footer variable
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-// End of code based on w3 Schools
-
-function bottomFunction() {
-    window.scrollTo(0,document.body.footer);
-} 
-
-*/

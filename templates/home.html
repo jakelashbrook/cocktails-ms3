@@ -234,7 +234,7 @@
         </div>
         </div>
 
-        <div class="container ghost-wht mt-3 mb-3">
+        <div class="container ghost-wht mt-3 mb-3 d-none">
             <!-- Love Cocktails -->
             <div class="container">
             <h3 class="text-center text-uppercase pt-3">Show us some Love!</h3>
@@ -248,12 +248,14 @@
                 <input type="text" class="d-none" value="{{ session.user }}" name="loved_by" id="loved_by">
             </form>
             {% endif %}
-            {% if session.user|lower == loved.loved_by %}
-            <button type="submit" class="btn button" form="love-form" value="submit" data-bs-toggle="tooltip"
-                data-bs-placement="top" title="Show some love">
-                <i class="fas fa-heart"></i>
-            </button>
-            {% endif %}
+            <div class="container text-center">
+                {% if session['username'] == loved.loved_by %}
+                    <button type="submit" class="btn button mb-3" form="love-form" value="submit" data-bs-toggle="tooltip"
+                        data-bs-placement="top" id="love-btn" title="Show some love">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                {% endif %}
+            </div>
             
                 {% if session.user|lower %}
                 <div class="container text-center">

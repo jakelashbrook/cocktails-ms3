@@ -82,7 +82,7 @@
                             {% if session.user|lower == "admin"|lower %}
                             <a class="dropdown-item" href="{{ url_for('get_categories') }}">Manage Categories</a>
                             <a class="dropdown-item" href="{{ url_for('get_user_recipes') }}">Manage Recipes</a>
-                            <a class="dropdown-item" href="{{ url_for('get_users') }}">Manage Users</a>
+                            <a class="dropdown-item d-none" href="{{ url_for('get_users') }}">Manage Users</a>
                             <a class="dropdown-item" href="{{ url_for('get_promotions') }}">Manage Promotions</a>
                             <!-- Chatbox functionality to be added in future release-->
                             <a class="dropdown-item d-none" href="#">Messages</a>

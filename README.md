@@ -73,7 +73,7 @@ I am currently enrolled as a student on.
 
 ## Design
 
-#### Colour Scheme 
+### Colour Scheme 
 I used the [Coolors](coolors.co) to search for different colours to use within the app. Here is a list of the colours and their respective hex codes:  
 - #009688 :  Shade of Green
 - #F5F3F7 : Offshade of White/Gray
@@ -85,15 +85,15 @@ I also decided to include a light and dark mode using Black and White Marble Ima
 give the website a bar vibe and fit with the app focus of Cocktails.
 
 
-#### Typography  
+### Typography  
 The fonts used within the app are all from the [Google Fonts Library](https://fonts.google.com/). Within this project I
 used [Yomogi](https://fonts.google.com/specimen/Yomogi?query=yomo), [Tourney](https://fonts.google.com/specimen/Tourney?query=tourn), and [Montserrat](https://fonts.google.com/specimen/Montserrat?query=montserrat). The default backup font
 is sans-serif.
 
-#### Icons 
+### Icons 
 In this project, I will use the Font Awesome Library due to the wide variety of icons it offers. You can take a look at their library [here](https://fontawesome.com/)
 
-#### Images 
+### Images 
 Due to users being able to use images URL's when creating their own recipes, Images will come from a variety of sources in the end. 
 However, I will use the recipe images from [bbcgoodfood.com](https://www.bbcgoodfood.com/) for this project as the majority of cocktail recipes have been sourced from there. Any additional credits will be listed in the credits section. It also 
 worth noting that the backgrounds for Light/Dark mode will be image based as mentioned above.
@@ -348,7 +348,7 @@ buttons.
 - [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)
 - [Am I Responsive?](http://ami.responsivedesign.is/)
 
-<h1 id="testing" align="center">Testing</h1>  
+<h1 id="test" align="center">Testing</h1>  
 
 ## Validation Results  
 
@@ -613,7 +613,7 @@ corner of the page.
 ## Content 
 - [BBC Good Food](https://www.bbcgoodfood.com/recipes/collection/cocktail-recipes) for start up Cocktail Content. 
 - [Olive Magazine](https://www.olivemagazine.com/drink/best-ever-cocktail-recipes/) for some Cocktail Content.
-
+- [White and Black Marble](https://stock.adobe.com/) Images used for Light/Dark mode backgrounds.
 
 ## Ackowledgements 
 - My Code Institute Mentor Antonio Rodriguez, for always being on hand to encourage and motivate me towards finding valid solutions.

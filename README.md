@@ -370,10 +370,77 @@ Here are a list of the validation results:
     - [Error/Warning Logs](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fwhats-your-tail.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
         - There are no entrys I am concerned about within these logs, the majority is based upon external code or simply
         created CSS variables that the validator doesn't recognise used for the light/dark mode CSS rules.  
-        
-- [JShint]()
 
-## Testing the App
+- **Javascript Fixes**:
+    - up-down.js:
+        - I originally had a topFunction() and bottomFunction() within this file but have commented it out and found
+        the functionality works exactly the same without it- This will be removed before final deployment and submission.
+        - There was an unused 'let footer' variable, this will also be removed.  
+    - main.js:
+        - Unused jQuery Code from Line 29 - 55 commented out, tested delete functionality without and all functioning
+        perfectly- Therefore this will be removed before final deployment and submission.  
+    - light-dark.js:
+        - No issues that need addressing.
+    
+    Any JShint warnings that haven't been addressed were because they didn't pose a threat to the functionality 
+    or operation of the app.
+
+- **PEP8**:
+    You can see the PEP8 Validation results [here](/docs/pep8-validator-results.txt).
+
+## Testing the App 
+
+### Site Responsiveness  
+
+I used the Google Chrome Dev Tools throughout the design of this site in conjunction with the Am I Responsive? Website
+facility. The site has been built using Bootstrap and it's Grid Facility as a base to make sure that it's functional across
+multiple devices.
+
+### Testing User Stories  
+
+#### First Time User Goals:
+- As a first time user, I want to be able to easily search for recipes based on keyword ingredients I would like to use. 
+    - As soon as arrive on the site there is a search bar on/within the site navigation. If you're on mobile
+    you just have to press the menu bars to access this.
+- As a first time user, I want to see a selection of recipes to easily browse through for inspiration.
+    - Straight away on the homepage you are greeted by the 'Popular Recipes' section.
+    - Within the navigation you can search for Cocktails using keywords.
+    - The Cocktails page is the also within the site navigation, where you can access all cocktails- or choose
+    to see Cocktails within a certain category using the cocktail category buttons.
+- As a first time user, I want to be able to easily use the site regardless of the device being used to access it. 
+    - The website is made using the Bootstrap Grid, so is optomised to be viewed on all devices.
+- As a first time user, I want to be able to select specific categories of recipes. For example, Alcohol or Non-Alcoholic Mocktails.
+    - As mentioned, on the Cocktails page you can select Cocktails by the category they're in using the category buttons.
+- As a first time user, I want to be able to register for an account and contribute my own recipes.
+    - At the top of every page sits the 'Register' button, so users can easily sign up for an account and add their 
+    own recipes.
+- As a first time user, I want to be able to intuitively use the site and navigate to specific areas.  
+    - The site is easy to navigate through using the navigation bar, top/bottom buttons and search facility.
+
+#### Registered Account Goals:
+- As a registered user, I want to be able to share my recipes with the website for other users to enjoy.
+    - Registered users can easily share recipes by selecting the 'My Account' dropdown within the navbar and
+    then selecting 'Add Cocktail'.
+- As a registered user, I want to be able to modify or delete my recipes.
+    - Registered Users can modify their recipes by selecting 'My Account', selecting 'My Profile' and 
+    then click on the recipe they wish to 'Edit' or 'Delete' and click the relevant button on the recipe page.
+- As a registered user, I want to be able to easily login to and manage my account. 
+- As a registered user, I want to be able to sign out of my account with ease.
+- As a registered user, I want to be able to like other recipes that I have enjoyed or wish to try. 
+
+#### Admin Account Goals: 
+- As the admin user, I want to be able to delete any recipes that do not fit with the site theme of Cocktails.
+- As the admin user, I want to be able to add new categories of Cocktails.
+- As the admin user, I want to be able to remove any categories that do not serve a purpose. 
+- As the admin user, I want to be able to remove any accounts that do not adhere to posting the correct content. 
+
+### User Experience Survey  
+
+### Defensive Design  
+
+### Bugs Solved 
+
+### Browser Compatibility
 
 <h1 id="deploy" align="center">Deployment</h1>
 

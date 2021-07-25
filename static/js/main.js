@@ -24,9 +24,9 @@ $( document ).ready(function() {
         }
     });
 
-    // End of Stack Overflow code
+    // End of Stack Overflow inspired code
 
-    $('.edit-cn-btn').click(function() {
+   /* $('.edit-cn-btn').click(function() {
         $('#accordionExample').addClass('d-none');
         $('.edit-cn-area').removeClass('d-none');
     });
@@ -52,5 +52,5 @@ $( document ).ready(function() {
 
     $(".no-del-btn").click(function() {
         $('.delete-area').addClass('d-none');
-    });
+    }); */
 });

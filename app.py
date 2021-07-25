@@ -29,7 +29,10 @@ def get_recipes():
     loved = mongo.db.loved.find().sort("loved_by", 1)
 
     return render_template(
-        "home.html", recipes=recipes, mobile_recipes=mobile_recipes, loved=loved)
+        "home.html",
+        recipes=recipes,
+        mobile_recipes=mobile_recipes,
+        loved=loved)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -75,10 +78,11 @@ def login():
         if existing_user:
             # make sure the hashed password matches user inputs
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome {}".format(request.form.get("username")))
-                    return redirect(url_for('get_cocktails'))
+                    existing_user["password"], request.form.get("password")):
+                        session["user"] = request.form.get("username").lower()
+                        flash("Welcome {}".format(
+                            request.form.get("username")))
+                        return redirect(url_for('get_cocktails'))
 
             else:
                 # invalid password entry
@@ -102,7 +106,10 @@ def profile(username):
     recipes = mongo.db.recipes.find().sort("created_by", 1)
 
     if session["user"]:
-        return render_template("profile.html", recipes=recipes, username=username)
+        return render_template(
+            "profile.html",
+            recipes=recipes,
+            username=username)
 
     return redirect(url_for('login'))
 
@@ -113,7 +120,8 @@ def delete_account():
     mongo.db.users.remove({"username": session["user"]})
     # logout user from session after removing account
     session.pop("user")
-    flash("You have successfully removed your account, Sorry to see you go, Come back soon!")
+    flash(
+        "You have successfully removed your account!")
     return redirect(url_for('get_recipes'))
 
 
@@ -246,12 +254,11 @@ def edit_category(category_id):
         mongo.db.categories.update({"_id": ObjectId(category_id)}, change)
         flash("Category name has been successfully updated!")
         return redirect(url_for('get_categories', username=session["user"]))
-    
+
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
         "categories.html", category=category, categories=categories)
-
 
 
 @app.route("/get_user_recipes")
@@ -282,7 +289,7 @@ def recipe(recipe_id):
         flash("Recipe does not exist")
         return render_template("cocktails.html")
 
-    return render_template("cocktail-recipe.html", recipe=recipe, loved=loved)
+    return render_template("cocktail-recipe.html", recipe=recipe)
 
 
 @app.route("/add_love", methods=["GET", "POST"])
@@ -294,7 +301,7 @@ def add_love():
         mongo.db.loved.insert_one(lover)
         flash("Thanks for sharing the love")
         return redirect(url_for("get_recipes"))
-    return render_template("home.html", loved=loved, lover=lover)
+    return render_template("home.html", lover=lover)
 
 
 @app.route("/get_promotions")

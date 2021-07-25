@@ -2,7 +2,7 @@
 //Get the back to top button
 let mybutton = document.getElementById("back-to-top-btn");
 let bottombutton = document.getElementById("bottom-btn");
-let footer = document.getElementById("footer");
+// let footer = document.getElementById("footer");
 
 // When the user scrolls down 120px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -14,8 +14,14 @@ function scrollFunction() {
   } else {
     mybutton.style.display = "none";
     bottombutton.style.display = "none";
+  } 
+  // End of Code
   }
-}
+
+
+/* 
+
+THIS CODE IS COMMENTED OUT AFTER JSHINT VALIDATION, as is the let footer variable
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
@@ -26,4 +32,6 @@ function topFunction() {
 
 function bottomFunction() {
     window.scrollTo(0,document.body.footer);
-}
+} 
+
+*/

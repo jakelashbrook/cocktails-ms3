@@ -160,19 +160,19 @@ Grid.
 **promotions.html**:  
     - A place the admin can view all of the email addresses that have signed up for promotional news.
 
-![Screenshot of Deployed Site](./docs/promotions-wyt.png)
+![Screenshot Promotions.html](./docs/promotions-wyt.png)
 
 **users.html**:
     - A place the admin can view the app users, and remove any users that don't adhere to the websites
     standards.
 
-![Screenshot of Deployed Site](./docs/users-wyt.png)
+![Screenshot users.html](./docs/users-wyt.png)
 
 **error 404**:
     - I have decided I will add an error page. I will make this fit with the design of the pre-existing site and 
     offer users a link back to the homepage when they land there.  
 
-![Screenshot of Deployed Site](./docs/error-wyt.png)
+![Screenshot of error_404.html](./docs/error-wyt.png)
 
 ## Information Architecture   
 
@@ -387,7 +387,9 @@ Here are a list of the validation results:
     or operation of the app.
 
 - **PEP8**:
-    You can see the PEP8 Validation results [here](/docs/pep8-validator-results.txt).
+    You can see the PEP8 Validation results below:  
+
+![Screenshot of PEP8 Validation Results](./docs/pep8-results.png)
 
 ## Testing the App 
 
